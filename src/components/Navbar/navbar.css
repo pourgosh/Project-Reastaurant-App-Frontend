@@ -1,0 +1,30 @@
+.navbar {
+  background: #121212;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 12dvh;
+}
+.navbar a {
+  font-size: 2.5vw;
+  font-weight: 700;
+  color: whitesmoke;
+  text-decoration: none;
+  margin: 0 8px 0 8px;
+}
+.navSection {
+  height: 90%;
+  display: flex;
+  align-items: center;
+  background-color: whitesmoke;
+  margin-right: 12px;
+}
+.navSection a {
+  color: black;
+}
+.navbar a:hover {
+  border-bottom: 3px solid white;
+}
+.navSection a:hover {
+  border-bottom: 4px solid rgb(4, 4, 4);
+}

@@ -1,16 +1,24 @@
 import { useRef } from "react";
 import FormInput from "./FormInput/FormInput";
+import "./form.css";
 
-const Form = ({ formType }) => {
+const Form = ({ formType, setShowForm }) => {
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
+  const onClick = () => {
+    setShowForm(false);
+  };
+
   return (
     <>
       {formType === "signup" ? (
-        <div style={{ backgroundColor: "red", height: "20vh" }}>
+        <div>
+          <section className="closeForm" onClick={onClick}>
+            <p>X</p>
+          </section>
           <form type="post">
             <FormInput
               refName={firstNameRef}
@@ -35,7 +43,10 @@ const Form = ({ formType }) => {
           </form>
         </div>
       ) : formType === "login" ? (
-        <div style={{ backgroundColor: "red", height: "20vh" }}>
+        <div>
+          <section className="closeForm" onClick={onClick}>
+            <p>X</p>
+          </section>
           <form type="post">
             <FormInput
               refName={emailRef}

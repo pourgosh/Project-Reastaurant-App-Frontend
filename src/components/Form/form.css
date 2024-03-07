@@ -1,0 +1,12 @@
+.closeForm {
+  display: flex;
+  justify-content: flex-end;
+}
+.closeForm p {
+  border: 2px solid black;
+  margin: 10px;
+  font-size: 30px;
+}
+.closeForm p:hover {
+  cursor: pointer;
+}

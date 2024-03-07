@@ -34,10 +34,12 @@ const HomePage = () => {
             <p>About Us</p>
           </div>
           <div className="aboutUsTextContainer">
-            <p>{myText}</p>
+            <div>
+              <p>{myText}</p>
+            </div>
           </div>
         </div>
-        <div className="imgWrapperWrapper">
+        <div>
           <div className="aboutUsImgWrapper">
             <img src={burgerImgTwo} alt="staff members image" />
           </div>

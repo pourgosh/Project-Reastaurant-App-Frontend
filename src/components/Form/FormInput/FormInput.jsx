@@ -1,4 +1,12 @@
-const FormInput = ({ refName, inputType, inputName, inputText }) => {
+const FormInput = ({
+  refName,
+  inputType,
+  inputName,
+  inputText,
+  inputClassName,
+  labelClassName,
+  placeHolder,
+}) => {
   const refFunc = (refrence) => {
     refrence.current.focus();
   };
@@ -6,13 +14,20 @@ const FormInput = ({ refName, inputType, inputName, inputText }) => {
   return (
     <>
       <label
+        className={labelClassName}
         onClick={() => {
           refFunc(refName);
         }}
       >
         {inputText}
       </label>
-      <input ref={refName} type={inputType} name={inputName} />
+      <input
+        placeholder={placeHolder}
+        ref={refName}
+        className={inputClassName}
+        type={inputType}
+        name={inputName}
+      />
     </>
   );
 };

@@ -15,50 +15,80 @@ const Form = ({ formType, setShowForm }) => {
   return (
     <>
       {formType === "signup" ? (
-        <div>
-          <section className="closeForm" onClick={onClick}>
-            <p>X</p>
-          </section>
-          <form type="post">
-            <FormInput
-              refName={firstNameRef}
-              inputName="firstName"
-              inputText="First Name"
-            />
-            <FormInput
-              refName={lastNameRef}
-              inputName="LastName"
-              inputText="Last Name"
-            />
-            <FormInput
-              refName={emailRef}
-              inputName="email"
-              inputText="E-mail"
-            />
-            <FormInput
-              refName={passwordRef}
-              inputName="password"
-              inputText="Password"
-            />
-          </form>
+        <div className="formWrapperWrapper">
+          <div className="formWrapper">
+            <section className="closeForm">
+              <p onClick={onClick}>X</p>
+            </section>
+            <div className="signupTextContainer">
+              <p>Sign Up</p>
+            </div>
+            <div className="formContainer">
+              <form type="post" className="formForm">
+                <FormInput
+                  inputClassName={"formInput"}
+                  labelClassName={"formLabel"}
+                  refName={firstNameRef}
+                  inputName="firstName"
+                  inputText="First Name"
+                />
+                <FormInput
+                  inputClassName={"formInput"}
+                  labelClassName={"formLabel"}
+                  refName={lastNameRef}
+                  inputName="LastName"
+                  inputText="Last Name"
+                />
+                <FormInput
+                  inputClassName={"formInput"}
+                  labelClassName={"formLabel"}
+                  refName={emailRef}
+                  inputName="email"
+                  inputText="E-mail"
+                />
+                <FormInput
+                  inputClassName={"formInput"}
+                  labelClassName={"formLabel"}
+                  refName={passwordRef}
+                  inputName="password"
+                  inputText="Password"
+                />
+                <button className="formSubmitBtn" type="submit">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
         </div>
       ) : formType === "login" ? (
-        <div>
-          <section className="closeForm" onClick={onClick}>
-            <p>X</p>
-          </section>
-          <form type="post">
-            <FormInput
-              refName={emailRef}
-              inputName="email"
-              inputText="E-mail"
-            />
-            <FormInput
-              refName={passwordRef}
-              inputName="password"
-              inputText="Password"
-            />
-          </form>
+        <div className="formWrapperWrapper">
+          <div className="formWrapper">
+            <section className="closeForm">
+              <p onClick={onClick}>X</p>
+            </section>
+            <div className="signupTextContainer">
+              <p>Login</p>
+            </div>
+            <div className="formContainer">
+              <form type="post" className="formForm">
+                <FormInput
+                  inputClassName={"formInput"}
+                  labelClassName={"formLabel"}
+                  refName={emailRef}
+                  inputName="email"
+                  inputText="E-mail"
+                />
+                <FormInput
+                  inputClassName={"formInput"}
+                  labelClassName={"formLabel"}
+                  refName={passwordRef}
+                  inputName="password"
+                  inputText="Password"
+                />
+                <button type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
         </div>
       ) : (
         ""

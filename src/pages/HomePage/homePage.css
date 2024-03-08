@@ -68,12 +68,11 @@
 }
 .menuContainer {
   background-color: rgb(20, 20, 20);
-  height: 75dvh;
+  height: 60rem;
   margin-top: 30px;
 }
 
 .aboutUsWrapper {
-  /* min-height: 60dvh; */
   margin-top: 35dvh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);

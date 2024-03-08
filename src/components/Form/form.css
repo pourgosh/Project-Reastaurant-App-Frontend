@@ -1,12 +1,60 @@
+.formWrapperWrapper {
+  position: fixed;
+  z-index: 1000000000000000000;
+  height: 100dvh;
+  width: 100dvw;
+  background-color: #000000e6;
+  display: grid;
+  align-items: center;
+}
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+}
 .closeForm {
   display: flex;
   justify-content: flex-end;
 }
 .closeForm p {
-  border: 2px solid black;
-  margin: 10px;
-  font-size: 30px;
+  border: 2px solid whitesmoke;
+  margin-right: 5rem;
+  color: white;
+  font-size: 4rem;
 }
 .closeForm p:hover {
   cursor: pointer;
+}
+.signupTextContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 6rem;
+}
+.signupTextContainer p {
+  font-size: 7rem;
+}
+.formContainer {
+  min-height: 50dvh;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.formForm {
+  max-width: 100%;
+  min-height: 24rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.formLabel {
+  font-size: 2rem;
+  color: whitesmoke;
+}
+.formInput {
+  width: 20%;
+  min-height: 2rem;
 }

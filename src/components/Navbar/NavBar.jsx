@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./navbar.css";
 import { useState } from "react";
-import Form from "../Form/Form";
+import AuthForm from "../AuthForm/AuthForm";
 import logo from "../../assets/Images/logo.png";
 import signupBg from "../../assets/Images/signupBg.png";
 
@@ -42,7 +42,7 @@ const NavBar = () => {
           </section>
         </div>
       </div>
-      {showForm && <Form formType={formType} setShowForm={setShowForm} />}
+      {showForm && <AuthForm formType={formType} setShowForm={setShowForm} />}
     </>
   );
 };

@@ -39,7 +39,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="aboutUsImgWrapperWrapper">
           <div className="aboutUsImgWrapper">
             <img src={burgerImgTwo} alt="staff members image" />
           </div>

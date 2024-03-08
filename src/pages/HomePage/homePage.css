@@ -1,8 +1,9 @@
 .mainWrapper {
   background-color: rgb(20, 20, 20);
   margin-top: 2px;
-  min-height: 70dvh;
-  display: flex;
+  max-height: 76dvh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 .enjoyTextContainer {
   display: flex;
@@ -14,41 +15,42 @@
   font-size: 4dvw;
   color: whitesmoke;
 }
+.textWrapper {
+  max-width: 50dvw;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  justify-items: end;
+  align-items: center;
+  align-content: space-around;
+}
 .textContainer {
-  max-width: 35dvw;
-  height: fit-content;
   text-align: left;
-  position: relative;
-  right: 140px;
+  padding-right: 8rem;
+  margin-bottom: 5rem;
+  min-width: 9rem;
 }
 .textContainer p {
   font-size: 1.2dvw;
   color: whitesmoke;
 }
 .imgWrapperWrapper {
-  width: 50dvw;
-  display: flex;
+  display: grid;
   justify-content: center;
 }
 .imgWrapper {
   position: relative;
-  border: 10px solid #2c2828;
   max-height: 75dvh;
-  max-width: 30dvw;
+  max-width: 100%;
   top: 90px;
+  margin-right: 6rem;
 }
 .imgWrapper img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
+  border: 10px solid #2c2828;
 }
-.textWrapper {
-  width: 50dvw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: flex-end;
-}
+
 .menuWrapper {
   margin-top: 400px;
   height: 60dvh;
@@ -71,15 +73,16 @@
 }
 
 .aboutUsWrapper {
-  height: 60dvh;
+  /* min-height: 60dvh; */
   margin-top: 35dvh;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 .aboutUsTextWrapper {
-  width: 70dvw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  max-width: 100%;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: end;
 }
 .aboutUsTitleContainer {
   height: fit-content;
@@ -89,12 +92,8 @@
   margin-left: 6dvw;
 }
 .aboutUsTextContainer {
-  width: 62dvw;
   background-color: rgb(20, 20, 20);
-  height: 40dvh;
   margin-left: 6dvw;
-  display: flex;
-  align-items: center;
 }
 .aboutUsTextContainer div p {
   text-align: left;
@@ -103,13 +102,19 @@
   font-size: 1.5dvw;
   color: whitesmoke;
 }
-
+.aboutUsImgWrapperWrapper {
+  margin-right: 8rem;
+  display: grid;
+  align-items: end;
+  justify-content: end;
+}
 .aboutUsImgWrapper {
-  border: 10px solid #2c2828;
-  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 .aboutUsImgWrapper img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  min-height: 100%;
   object-fit: contain;
+  border: 10px solid #2c2828;
 }

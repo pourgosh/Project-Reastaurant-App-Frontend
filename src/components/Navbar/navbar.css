@@ -2,7 +2,7 @@
   background: #121212;
   display: flex;
   justify-content: space-between;
-  height: 12dvh;
+  max-height: 18dvh;
 }
 .navbarLinks a {
   font-size: 2.5vw;
@@ -20,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 12px;
+  margin-right: 24px;
 }
 .navSection p {
   font-size: 2.5vw;

@@ -122,3 +122,10 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+html {
+  background-color: rgb(228, 220, 228);
+}
+#root {
+  background-color: rgb(228, 220, 228);
+  display: grid;
+}

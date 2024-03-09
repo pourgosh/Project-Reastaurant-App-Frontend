@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import AboutPage from "./pages/AboutPage/AboutPage";
 import NavBar from "./components/Navbar/NavBar";
 import AdminPage from "./pages/AdminPage/AdminPage";
+import StaffPage from "./pages/StaffRegistrationPage/StaffPage";
 
 function App() {
   return (
@@ -12,8 +13,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/admin/control" element={<AdminPage />} />
-        {/* <Route path="/user/registration" element={<AboutPage />} />
-        <Route path="/user/login" element={<AboutPage />} /> */}
+        <Route path="/staff/registration" element={<StaffPage />} />
       </Routes>
     </>
   );

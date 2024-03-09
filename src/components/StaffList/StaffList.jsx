@@ -1,14 +1,28 @@
 import { useState } from "react";
 import EditStaffForm from "./StaffForms/EditStaffForm";
+import StaffRegistration from "./StaffForms/StaffRegistration";
 
 const StaffList = ({ staffList, deleteStaffOnClick }) => {
   const [elemToShow, setElemToShow] = useState(null);
+  const [showRegistration, setShowRegistration] = useState(false);
+
+  const registrationFormControl = () => {
+    setShowRegistration(!showRegistration);
+  };
 
   const editStaffFormControler = (elemId) => {
     setElemToShow(elemId);
   };
   return (
     <>
+      <div>
+        <div>
+          <p onClick={registrationFormControl}>Add Staff member</p>
+        </div>
+        {showRegistration && (
+          <StaffRegistration setShowRegistration={setShowRegistration} />
+        )}
+      </div>
       <div style={{ margin: "10px" }}>
         <p>List of staff members</p>
       </div>

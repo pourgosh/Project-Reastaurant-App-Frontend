@@ -6,7 +6,7 @@ import { useContext, useState } from "react";
 import { foodContext } from "../../../pages/AdminPage/AdminPage";
 
 // eslint-disable-next-line no-unused-vars
-const FoodListForm = ({ requestType, className, foodList, ...props }) => {
+const FoodListForm = ({ requestType, className, ...props }) => {
   // eslint-disable-next-line no-unused-vars
   const [cookies, _] = useCookies("access_token");
   const getFoodsFunction = useContext(foodContext);

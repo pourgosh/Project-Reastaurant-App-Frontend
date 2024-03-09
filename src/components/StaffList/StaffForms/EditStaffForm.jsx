@@ -135,9 +135,37 @@ const EditStaffForm = ({ requestType, elem, setElemToShow }) => {
           }}
         />
         <FormInput
-          inputText="position"
-          inputType="text"
-          inputValue={staffInfo.position}
+          inputText="Owner"
+          inputType="radio"
+          inputValue="Owner"
+          checked={staffInfo.position === "Owner" && "checked"}
+          inputName="position"
+          onChange={(e) => {
+            setStaffInfo({
+              ...staffInfo,
+              position: e.target.value,
+            });
+          }}
+        />
+        <FormInput
+          inputText="Developer"
+          inputType="radio"
+          inputValue="Developer"
+          checked={staffInfo.position === "Developer" && "checked"}
+          inputName="position"
+          onChange={(e) => {
+            setStaffInfo({
+              ...staffInfo,
+              position: e.target.value,
+            });
+          }}
+        />
+        <FormInput
+          inputText="Staff"
+          inputType="radio"
+          inputValue="Staff"
+          checked={staffInfo.position === "Staff" && "checked"}
+          inputName="position"
           onChange={(e) => {
             setStaffInfo({
               ...staffInfo,

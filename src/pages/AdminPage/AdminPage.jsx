@@ -76,6 +76,12 @@ const AdminPage = () => {
       console.error(err);
     }
   };
+  const deleteStaffOnClick = async (elem) => {
+    await axios.delete(`${API_URL}/staff/${elem._id}`, {
+      headers: { token: cookies.access_token },
+    });
+    getStaffFromDb();
+  };
 
   return (
     <div>
@@ -87,7 +93,10 @@ const AdminPage = () => {
         <FoodList foodList={foodList} deleteFoodOnClick={deleteFoodOnClick} />
       </foodContext.Provider>
       <staffContext.Provider value={getStaffFromDb}>
-        <StaffList staffList={staffList} />
+        <StaffList
+          staffList={staffList}
+          deleteStaffOnClick={deleteStaffOnClick}
+        />
       </staffContext.Provider>
     </div>
   );

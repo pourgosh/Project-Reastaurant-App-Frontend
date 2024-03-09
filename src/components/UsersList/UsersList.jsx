@@ -1,6 +1,9 @@
 const UsersList = ({ usersList, deleteUsersonClick }) => {
   return (
     <div style={{ margin: "10px" }}>
+      <div>
+        <p>List of users</p>
+      </div>
       {usersList &&
         usersList.map((elem) => {
           return (

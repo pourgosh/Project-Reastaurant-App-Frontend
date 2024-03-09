@@ -72,7 +72,6 @@ const FoodList = ({ foodList, deleteFoodOnClick }) => {
               {elemToShow === elem._id && (
                 <EditFoodListForm
                   requestType="put"
-                  foodList={foodList}
                   elem={elem}
                   setElemToShow={setElemToShow}
                 />

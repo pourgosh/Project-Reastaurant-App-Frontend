@@ -6,6 +6,8 @@ const FoodList = ({ foodList, deleteFoodOnClick }) => {
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [elemToShow, setElemToShow] = useState(null);
 
+  const parameter = window.location.pathname;
+
   const formControler = () => {
     setShowCreateForm(!showCreateForm);
   };
@@ -15,9 +17,11 @@ const FoodList = ({ foodList, deleteFoodOnClick }) => {
 
   return (
     <div style={{ margin: "10px" }}>
-      <div style={{ margin: "10px" }}>
-        <p onClick={formControler}>Create new Food</p>
-      </div>
+      {parameter === "/admin/control" && (
+        <div style={{ margin: "10px" }}>
+          <p onClick={formControler}>Create new Food</p>
+        </div>
+      )}
       {showCreateForm && (
         <FoodListForm requestType="post" foodList={foodList} />
       )}
@@ -41,24 +45,29 @@ const FoodList = ({ foodList, deleteFoodOnClick }) => {
               {elem.category && <p>category: {elem.category}</p>}
               <p>{elem.price}$</p>
               <div>
-                <div>
-                  <p
-                    onClick={() => {
-                      deleteFoodOnClick(elem);
-                    }}
-                  >
-                    Delete Food
-                  </p>
-                </div>
-                <div>
-                  <p
-                    onClick={() => {
-                      editFormControler(elem._id);
-                    }}
-                  >
-                    Update Food
-                  </p>
-                </div>
+                {parameter === "/admin/control" && (
+                  <div>
+                    <div>
+                      <p
+                        onClick={() => {
+                          deleteFoodOnClick(elem);
+                        }}
+                      >
+                        Delete Food
+                      </p>
+                    </div>
+
+                    <div>
+                      <p
+                        onClick={() => {
+                          editFormControler(elem._id);
+                        }}
+                      >
+                        Update Food
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
               {elemToShow === elem._id && (
                 <EditFoodListForm

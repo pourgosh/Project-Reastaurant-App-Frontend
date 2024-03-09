@@ -4,12 +4,15 @@ import { useCookies } from "react-cookie";
 import { API_URL } from "../../../ApiUrl";
 import UsersList from "../../components/UsersList/UsersList";
 import FoodList from "../../components/FoodList/FoodList";
+import StaffList from "../../components/StaffList/StaffList";
 
 export const foodContext = createContext();
+export const staffContext = createContext();
 
 const AdminPage = () => {
   const [usersList, setUsersList] = useState(null);
   const [foodList, setFoodList] = useState(null);
+  const [staffList, setStaffList] = useState(null);
 
   // eslint-disable-next-line no-unused-vars
   const [cookies, _] = useCookies(["access_token"]);
@@ -36,9 +39,21 @@ const AdminPage = () => {
     }
   };
 
+  const getStaffFromDb = async () => {
+    try {
+      const result = await axios.get(`${API_URL}/staff`, {
+        headers: { token: cookies.access_token },
+      });
+      setStaffList(result.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     getUsersFromDb();
     getFoodsFromDb();
+    getStaffFromDb();
   }, []);
 
   const deleteUsersonClick = async (elem) => {
@@ -71,6 +86,9 @@ const AdminPage = () => {
       <foodContext.Provider value={getFoodsFromDb}>
         <FoodList foodList={foodList} deleteFoodOnClick={deleteFoodOnClick} />
       </foodContext.Provider>
+      <staffContext.Provider value={getStaffFromDb}>
+        <StaffList staffList={staffList} />
+      </staffContext.Provider>
     </div>
   );
 };

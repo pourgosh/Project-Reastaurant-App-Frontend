@@ -1,4 +1,4 @@
-const UsersList = ({ usersList, setUsersList, onClick }) => {
+const UsersList = ({ usersList, deleteUsersonClick }) => {
   return (
     <>
       {usersList &&
@@ -25,7 +25,7 @@ const UsersList = ({ usersList, setUsersList, onClick }) => {
               <div>
                 <div
                   onClick={() => {
-                    onClick(elem);
+                    deleteUsersonClick(elem);
                   }}
                 >
                   <p>delete</p>

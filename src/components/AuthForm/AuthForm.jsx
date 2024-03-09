@@ -80,7 +80,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   refName={firstNameRef}
                   inputName="firstName"
                   inputText="First Name"
-                  newUser={newUser.firstName}
+                  inputValue={newUser.firstName}
                   onChange={(e) => {
                     setNewUser({
                       ...newUser,
@@ -94,7 +94,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   refName={lastNameRef}
                   inputName="LastName"
                   inputText="Last Name"
-                  newUser={newUser.lastName}
+                  inputValue={newUser.lastName}
                   onChange={(e) => {
                     setNewUser({
                       ...newUser,
@@ -108,7 +108,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   refName={emailRef}
                   inputName="email"
                   inputText="E-mail"
-                  newUser={newUser.email}
+                  inputValue={newUser.email}
                   onChange={(e) => {
                     setNewUser({
                       ...newUser,
@@ -123,7 +123,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   inputName="password"
                   inputText="Password"
                   inputType="password"
-                  newUser={newUser.password}
+                  inputValue={newUser.password}
                   onChange={(e) => {
                     setNewUser({
                       ...newUser,
@@ -155,7 +155,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   refName={emailRef}
                   inputName="email"
                   inputText="E-mail"
-                  newUser={userLoginInfo.email}
+                  inputValue={userLoginInfo.email}
                   onChange={(e) => {
                     setUserLoginInfo({
                       ...userLoginInfo,
@@ -170,7 +170,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   inputName="password"
                   inputText="Password"
                   inputType="password"
-                  newUser={userLoginInfo.password}
+                  inputValue={userLoginInfo.password}
                   onChange={(e) => {
                     setUserLoginInfo({
                       ...userLoginInfo,

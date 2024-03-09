@@ -6,8 +6,9 @@ const FormInput = ({
   inputClassName,
   labelClassName,
   placeHolder,
-  newUser,
+  inputValue,
   onChange,
+  required,
 }) => {
   const refFunc = (refrence) => {
     refrence.current.focus();
@@ -24,12 +25,13 @@ const FormInput = ({
         {inputText}
       </label>
       <input
+        required={required}
         placeholder={placeHolder}
         ref={refName}
         className={inputClassName}
         type={inputType}
         name={inputName}
-        value={newUser}
+        value={inputValue}
         onChange={onChange}
       />
     </>

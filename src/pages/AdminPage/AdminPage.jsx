@@ -61,16 +61,7 @@ const AdminPage = () => {
       console.error(err);
     }
   };
-  const updateFoodOnClick = async (elem) => {
-    try {
-      await axios.delete(`${API_URL}/food/${elem._id}`, {
-        headers: { token: cookies.access_token },
-      });
-      getFoodsFromDb();
-    } catch (err) {
-      console.error(err);
-    }
-  };
+
   return (
     <div>
       <UsersList
@@ -78,11 +69,7 @@ const AdminPage = () => {
         deleteUsersonClick={deleteUsersonClick}
       />
       <foodContext.Provider value={getFoodsFromDb}>
-        <FoodList
-          foodList={foodList}
-          deleteFoodOnClick={deleteFoodOnClick}
-          updateFoodOnClick={updateFoodOnClick}
-        />
+        <FoodList foodList={foodList} deleteFoodOnClick={deleteFoodOnClick} />
       </foodContext.Provider>
     </div>
   );

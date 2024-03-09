@@ -9,6 +9,7 @@ const FormInput = ({
   inputValue,
   onChange,
   required,
+  checked,
 }) => {
   const refFunc = (refrence) => {
     refrence.current.focus();
@@ -25,14 +26,15 @@ const FormInput = ({
         {inputText}
       </label>
       <input
-        required={required}
-        placeholder={placeHolder}
-        ref={refName}
-        className={inputClassName}
-        type={inputType}
-        name={inputName}
-        value={inputValue}
-        onChange={onChange}
+        checked={checked && checked}
+        required={required && required}
+        placeholder={placeHolder && placeHolder}
+        ref={refName && refName}
+        className={inputClassName && inputClassName}
+        type={inputType && inputType}
+        name={inputName && inputName}
+        value={inputValue && inputValue}
+        onChange={onChange && onChange}
       />
     </>
   );

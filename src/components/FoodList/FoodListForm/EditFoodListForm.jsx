@@ -1,16 +1,21 @@
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import FormInput from "../../AuthForm/FormInput/FormInput";
 import { API_URL } from "../../../../ApiUrl";
 import { useCookies } from "react-cookie";
-import { useContext, useState } from "react";
 import { foodContext } from "../../../pages/AdminPage/AdminPage";
 
-// eslint-disable-next-line no-unused-vars
-const FoodListForm = ({ requestType, className, foodList, ...props }) => {
+const EditFoodListForm = ({ requestType, elem, setElemToShow }) => {
   // eslint-disable-next-line no-unused-vars
   const [cookies, _] = useCookies("access_token");
-  const getFoodsFunction = useContext(foodContext);
+
+  const getFoodsFromDb = useContext(foodContext);
+
+  const closeEditForm = () => {
+    setElemToShow(null);
+  };
   const [foodInfo, setFoodInfo] = useState({
+    _id: "",
     title: "",
     description: "",
     ingredients: "",
@@ -21,37 +26,66 @@ const FoodListForm = ({ requestType, className, foodList, ...props }) => {
     price: 0,
   });
 
-  const createFoodItem = async () => {
+  const getFoodItemById = async () => {
     try {
-      const newFoodItem = {
+      const elemID = elem._id;
+      const response = await axios.get(`${API_URL}/food/${elemID}`);
+      setFoodInfo({
+        _id: response.data._id,
+        title: response.data.title,
+        description: response.data.description,
+        ingredients: response.data.ingredients,
+        origin: response.data.origin,
+        image: response.data.image,
+        chefsRecommendations: response.data.chefsRecommendations,
+        category: response.data.category,
+        price: response.data.price,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getFoodItemById();
+  }, []);
+
+  const updateOnSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const elemID = foodInfo._id;
+      const newFoodInfo = {
+        _id: foodInfo._id,
         title: foodInfo.title,
         description: foodInfo.description,
-        ingredients: [foodInfo.ingredients],
+        ingredients: foodInfo.ingredients,
         origin: foodInfo.origin,
         image: foodInfo.image,
         chefsRecommendations: foodInfo.chefsRecommendations,
         category: foodInfo.category,
         price: foodInfo.price,
       };
-      await axios.post(`${API_URL}/food`, newFoodItem, {
+      await axios.put(`${API_URL}/food/${elemID}`, newFoodInfo, {
         headers: { token: cookies.access_token },
       });
-      getFoodsFunction();
+      getFoodsFromDb();
+      closeEditForm();
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <>
+    <div style={{ margin: "10px" }}>
+      <h1>EDIT ITEM</h1>
       <form
-        onSubmit={createFoodItem}
-        type={requestType && requestType}
-        className={className && className}
+        type={requestType}
+        onSubmit={() => {
+          updateOnSubmit();
+        }}
       >
         <FormInput
           inputText="title"
-          required="required"
           inputType="text"
           inputValue={foodInfo.title}
           onChange={(e) => {
@@ -106,7 +140,7 @@ const FoodListForm = ({ requestType, className, foodList, ...props }) => {
           }}
         />
         <FormInput
-          inputText="chefs Recommendations"
+          inputText="chefsRecommendations"
           inputType="text"
           inputValue={foodInfo.chefsRecommendations}
           onChange={(e) => {
@@ -116,10 +150,10 @@ const FoodListForm = ({ requestType, className, foodList, ...props }) => {
             });
           }}
         />
-        <p>category</p>
         <FormInput
           inputText="Vegetarian"
           inputType="radio"
+          checked={foodInfo.category === "Vegetarian" && "checked"}
           inputName="category"
           inputValue="Vegetarian"
           onChange={(e) => {
@@ -127,14 +161,14 @@ const FoodListForm = ({ requestType, className, foodList, ...props }) => {
               ...foodInfo,
               category: e.target.value,
             });
-            console.log(foodInfo.category);
           }}
         />
         <FormInput
           inputText="Steak"
           inputType="radio"
-          inputValue="Steak"
+          checked={foodInfo.category === "Steak" && "checked"}
           inputName="category"
+          inputValue="Steak"
           onChange={(e) => {
             setFoodInfo({
               ...foodInfo,
@@ -145,8 +179,9 @@ const FoodListForm = ({ requestType, className, foodList, ...props }) => {
         <FormInput
           inputText="Burger"
           inputType="radio"
-          inputValue="Burger"
+          checked={foodInfo.category === "Burger" && "checked"}
           inputName="category"
+          inputValue="Burger"
           onChange={(e) => {
             setFoodInfo({
               ...foodInfo,
@@ -156,8 +191,9 @@ const FoodListForm = ({ requestType, className, foodList, ...props }) => {
         />
         <FormInput
           inputText="Finger-food"
-          inputName="category"
           inputType="radio"
+          checked={foodInfo.category === "Finger-food" && "checked"}
+          inputName="category"
           inputValue="Finger-food"
           onChange={(e) => {
             setFoodInfo({
@@ -167,9 +203,10 @@ const FoodListForm = ({ requestType, className, foodList, ...props }) => {
           }}
         />
         <FormInput
-          inputName="category"
           inputText="Desert"
           inputType="radio"
+          checked={foodInfo.category === "Desert" && "checked"}
+          inputName="category"
           inputValue="Desert"
           onChange={(e) => {
             setFoodInfo({
@@ -178,12 +215,10 @@ const FoodListForm = ({ requestType, className, foodList, ...props }) => {
             });
           }}
         />
-        <br />
         <FormInput
           inputText="price"
-          inputType="number"
+          inputType="text"
           inputValue={foodInfo.price}
-          required="required"
           onChange={(e) => {
             setFoodInfo({
               ...foodInfo,
@@ -192,13 +227,14 @@ const FoodListForm = ({ requestType, className, foodList, ...props }) => {
           }}
         />
         <div>
-          <div>
-            <button type="submit">submit</button>
-          </div>
+          <p onClick={updateOnSubmit}>submit update</p>
         </div>
       </form>
-    </>
+      <div>
+        <p onClick={closeEditForm}>cancel</p>
+      </div>
+    </div>
   );
 };
 
-export default FoodListForm;
+export default EditFoodListForm;

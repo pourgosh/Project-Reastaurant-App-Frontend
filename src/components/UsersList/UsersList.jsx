@@ -1,10 +1,10 @@
 const UsersList = ({ usersList, deleteUsersonClick }) => {
   return (
-    <>
+    <div style={{ margin: "10px" }}>
       {usersList &&
         usersList.map((elem) => {
           return (
-            <div key={elem._id}>
+            <div key={elem._id} style={{ margin: "10px" }}>
               <p>first name: {elem.firstName}</p>
               <p>last name: {elem.lastName}</p>
               <p>E-mail: {elem.email}</p>
@@ -34,7 +34,7 @@ const UsersList = ({ usersList, deleteUsersonClick }) => {
             </div>
           );
         })}
-    </>
+    </div>
   );
 };
 

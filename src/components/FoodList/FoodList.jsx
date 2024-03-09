@@ -1,29 +1,44 @@
+import EditFoodListForm from "./FoodListForm/EditFoodListForm";
 import FoodListForm from "./FoodListForm/FoodListForm";
 import { useState } from "react";
 
-const FoodList = ({ foodList, deleteFoodOnClick, updateFoodOnClick }) => {
-  const [showForm, setShowForm] = useState(false);
+const FoodList = ({ foodList, deleteFoodOnClick }) => {
+  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [elemToShow, setElemToShow] = useState(null);
 
   const formControler = () => {
-    setShowForm(!showForm);
+    setShowCreateForm(!showCreateForm);
   };
+  const editFormControler = (elemId) => {
+    setElemToShow(elemId);
+  };
+
   return (
-    <div>
-      <div>
+    <div style={{ margin: "10px" }}>
+      <div style={{ margin: "10px" }}>
         <p onClick={formControler}>Create new Food</p>
       </div>
-      {showForm && <FoodListForm requestType="post" />}
+      {showCreateForm && (
+        <FoodListForm requestType="post" foodList={foodList} />
+      )}
       {foodList &&
         foodList.map((elem) => {
           return (
-            <div key={elem._id}>
-              <p>{elem.title}</p>
-              {elem.description && <p>{elem.description}</p>}
-              {elem.origin && <p>{elem.origin}</p>}
-              {elem.origin && <p>{elem.origin}</p>}
-              {elem.image && <img src={elem.image} alt="item image" />}
-              {elem.chefsRecommendations && <p>{elem.chefsRecommendations}</p>}
-              {elem.category && <p>{elem.category}</p>}
+            <div key={elem._id} style={{ margin: "10px" }}>
+              <p>title: {elem.title}</p>
+              {elem.description && <p>description: {elem.description}</p>}
+              {elem.origin && <p>origin: {elem.origin}</p>}
+              {elem.ingredients && <p>ingredients: {elem.ingredients}</p>}
+              {elem.image && (
+                <div>
+                  <p>image:</p>
+                  <img src={elem.image} alt="item image" />
+                </div>
+              )}
+              {elem.chefsRecommendations && (
+                <p>chefsRecommendations: {elem.chefsRecommendations}</p>
+              )}
+              {elem.category && <p>category: {elem.category}</p>}
               <p>{elem.price}$</p>
               <div>
                 <div>
@@ -38,14 +53,21 @@ const FoodList = ({ foodList, deleteFoodOnClick, updateFoodOnClick }) => {
                 <div>
                   <p
                     onClick={() => {
-                      updateFoodOnClick(elem);
-                      formControler();
+                      editFormControler(elem._id);
                     }}
                   >
                     Update Food
                   </p>
                 </div>
               </div>
+              {elemToShow === elem._id && (
+                <EditFoodListForm
+                  requestType="put"
+                  foodList={foodList}
+                  elem={elem}
+                  setElemToShow={setElemToShow}
+                />
+              )}
             </div>
           );
         })}

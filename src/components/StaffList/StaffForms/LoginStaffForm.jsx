@@ -3,14 +3,18 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 import FormInput from "../../AuthForm/FormInput/FormInput";
 import { API_URL } from "../../../../ApiUrl";
+import { useNavigate } from "react-router-dom";
 
 const LoginStaffForm = () => {
   // eslint-disable-next-line no-unused-vars
-  const [_, setCookies] = useCookies("access_token");
+  const [cookies, setCookies] = useCookies("access_token");
   const [staffInfo, setStaffInfo] = useState({
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
+
   const loginOnSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -22,8 +26,13 @@ const LoginStaffForm = () => {
         `${API_URL}/staff/login`,
         staffInformation
       );
-      setCookies("access_token", response.data.token);
-      window.localStorage.setItem("staffID", response.data.token);
+      if (response) {
+        setCookies("access_token", response.data.token);
+        window.localStorage.setItem("staffID", response.data.token);
+        navigate("/staff/reservations");
+      } else {
+        navigate("/");
+      }
     } catch (err) {
       console.log(err);
     }
@@ -31,11 +40,10 @@ const LoginStaffForm = () => {
 
   return (
     <div>
-      <p>hello</p>
       <form onSubmit={loginOnSubmit}>
         <FormInput
           inputText="E-mail"
-          inputType="text"
+          inputType="email"
           inputValue={staffInfo.email}
           onChange={(e) => {
             setStaffInfo({

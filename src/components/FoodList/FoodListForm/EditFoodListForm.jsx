@@ -76,7 +76,7 @@ const EditFoodListForm = ({ requestType, elem, setElemToShow }) => {
   };
 
   return (
-    <div style={{ margin: "10px" }}>
+    <div>
       <h1>EDIT ITEM</h1>
       <form
         type={requestType}

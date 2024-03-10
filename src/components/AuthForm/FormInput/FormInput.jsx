@@ -18,7 +18,7 @@ const FormInput = ({
   return (
     <>
       <label
-        className={labelClassName}
+        className={labelClassName && labelClassName}
         onClick={() => {
           refFunc(refName);
         }}

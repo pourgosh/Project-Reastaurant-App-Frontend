@@ -1,11 +1,10 @@
-import EditFoodListForm from "./FoodListForm/EditFoodListForm";
-import FoodListForm from "./FoodListForm/FoodListForm";
 import { useState } from "react";
-import "./foodList.css";
+import DrinkListForm from "./DrinkListForm/DrinkListForm";
+import EditDrinkListForm from "./DrinkListForm/EditDrinkListForm";
 
-const FoodList = ({
-  foodList,
-  deleteFoodOnClick,
+const DrinkList = ({
+  drinkList,
+  deleteDrinkOnClick,
   WrapperWrapperClassName,
   wrapperClassName,
   imageContainer,
@@ -18,6 +17,7 @@ const FoodList = ({
 
   const formControler = () => {
     setShowCreateForm(!showCreateForm);
+    console.log(showCreateForm);
   };
   const editFormControler = (elemId) => {
     setElemToShow(elemId);
@@ -27,14 +27,14 @@ const FoodList = ({
     <div className={WrapperWrapperClassName && WrapperWrapperClassName}>
       {parameter === "/admin/control" && (
         <div>
-          <p onClick={formControler}>Create new Food</p>
+          <p onClick={formControler}>Create new Drink</p>
         </div>
       )}
       {showCreateForm && (
-        <FoodListForm requestType="post" foodList={foodList} />
+        <DrinkListForm requestType="post" drinkList={drinkList} />
       )}
-      {foodList &&
-        foodList.map((elem) => {
+      {drinkList &&
+        drinkList.map((elem) => {
           return (
             <div
               key={elem._id}
@@ -47,12 +47,8 @@ const FoodList = ({
                 </div>
               )}
               <div className={infoTextContainer && infoTextContainer}>
-                {elem.description && <p>description: {elem.description}</p>}
                 {elem.origin && <p>origin: {elem.origin}</p>}
-                {elem.ingredients && <p>ingredients: {elem.ingredients}</p>}
-                {elem.chefsRecommendations && (
-                  <p>chefsRecommendations: {elem.chefsRecommendations}</p>
-                )}
+                {elem.type && <p>type: {elem.type}</p>}
                 {elem.category && <p>category: {elem.category}</p>}
                 <p>{elem.price}$</p>
               </div>
@@ -61,10 +57,10 @@ const FoodList = ({
                   <div>
                     <p
                       onClick={() => {
-                        deleteFoodOnClick(elem);
+                        deleteDrinkOnClick(elem);
                       }}
                     >
-                      Delete Food
+                      Delete Drink
                     </p>
                   </div>
 
@@ -74,13 +70,13 @@ const FoodList = ({
                         editFormControler(elem._id);
                       }}
                     >
-                      Update Food
+                      Update Drink
                     </p>
                   </div>
                 </div>
               )}
               {elemToShow === elem._id && (
-                <EditFoodListForm
+                <EditDrinkListForm
                   requestType="put"
                   elem={elem}
                   setElemToShow={setElemToShow}
@@ -93,4 +89,4 @@ const FoodList = ({
   );
 };
 
-export default FoodList;
+export default DrinkList;

@@ -5,14 +5,17 @@ import { API_URL } from "../../../ApiUrl";
 import UsersList from "../../components/UsersList/UsersList";
 import FoodList from "../../components/FoodList/FoodList";
 import StaffList from "../../components/StaffList/StaffList";
+import DrinkList from "../../components/DrinkList/DrinkList";
 
 export const foodContext = createContext();
 export const staffContext = createContext();
+export const drinkContext = createContext();
 
 const AdminPage = () => {
   const [usersList, setUsersList] = useState(null);
   const [foodList, setFoodList] = useState(null);
   const [staffList, setStaffList] = useState(null);
+  const [drinkList, setDrinkList] = useState(null);
 
   // eslint-disable-next-line no-unused-vars
   const [cookies, _] = useCookies(["access_token"]);
@@ -50,10 +53,20 @@ const AdminPage = () => {
     }
   };
 
+  const getDrinkFromDb = async () => {
+    try {
+      const result = await axios.get(`${API_URL}/drink`);
+      setDrinkList(result.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   useEffect(() => {
     getUsersFromDb();
     getFoodsFromDb();
     getStaffFromDb();
+    getDrinkFromDb();
   }, []);
 
   const deleteUsersonClick = async (elem) => {
@@ -77,12 +90,25 @@ const AdminPage = () => {
     }
   };
   const deleteStaffOnClick = async (elem) => {
-    await axios.delete(`${API_URL}/staff/${elem._id}`, {
-      headers: { token: cookies.access_token },
-    });
-    getStaffFromDb();
+    try {
+      await axios.delete(`${API_URL}/staff/${elem._id}`, {
+        headers: { token: cookies.access_token },
+      });
+      getStaffFromDb();
+    } catch (err) {
+      console.error(err);
+    }
   };
-
+  const deleteDrinkOnClick = async (elem) => {
+    try {
+      await axios.delete(`${API_URL}/drink/${elem._id}`, {
+        headers: cookies.access_token,
+      });
+      getDrinkFromDb();
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <div>
       <UsersList
@@ -98,6 +124,12 @@ const AdminPage = () => {
           deleteStaffOnClick={deleteStaffOnClick}
         />
       </staffContext.Provider>
+      <drinkContext.Provider value={getDrinkFromDb}>
+        <DrinkList
+          deleteDrinkOnClick={deleteDrinkOnClick}
+          drinkList={drinkList}
+        />
+      </drinkContext.Provider>
     </div>
   );
 };

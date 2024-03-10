@@ -12,7 +12,7 @@ const EditStaffForm = ({ requestType, elem, setElemToShow }) => {
   const getStaffFromDb = useContext(staffContext);
 
   const closeEditForm = () => {
-    setElemToShow(null);
+    setElemToShow(false);
   };
   const [staffInfo, setStaffInfo] = useState({
     _id: "",

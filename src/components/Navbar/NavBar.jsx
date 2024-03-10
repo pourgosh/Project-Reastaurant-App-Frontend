@@ -17,7 +17,6 @@ const NavBar = () => {
     window.localStorage.removeItem("userID");
     window.localStorage.removeItem("staffID");
   };
-
   return (
     <>
       {!cookies.access_token ? (

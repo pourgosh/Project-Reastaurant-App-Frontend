@@ -38,12 +38,13 @@
 }
 .textContainer {
   text-align: left;
-  padding-right: 12%;
+  padding-right: 7%;
   padding-left: 10%;
   min-width: 9rem;
+  line-height: 4dvh;
 }
 .textContainer p {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: whitesmoke;
 }
 .menuTitleContainer {
@@ -62,6 +63,8 @@
   background-color: rgb(20, 20, 20);
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 75dvh;
 }
 .aboutUsWrapper {
   display: flex;
@@ -99,13 +102,8 @@
   justify-content: flex-start;
 }
 .aboutUsImgWrapper {
-  padding-right: 5%;
+  padding-left: 2rem;
 }
 .aboutUsImgWrapper img {
   object-fit: contain;
 }
-/* 
-
-
-
-*/

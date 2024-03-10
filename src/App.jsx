@@ -5,6 +5,7 @@ import NavBar from "./components/Navbar/NavBar";
 import AdminPage from "./pages/AdminPage/AdminPage";
 import StaffPage from "./pages/StaffRegistrationPage/StaffPage";
 import StaffHomePage from "./pages/StaffHomePage/StaffHomePage";
+import ProfileLink from "./components/ProfileLink/ProfileLink";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/staff/registration" element={<StaffPage />} />
         <Route path="/staff/reservations" element={<StaffHomePage />} />
       </Routes>
+      <ProfileLink />
     </>
   );
 }

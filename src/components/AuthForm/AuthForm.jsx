@@ -19,6 +19,8 @@ const AuthForm = ({ formType, setShowForm }) => {
 
   // eslint-disable-next-line no-unused-vars
   const [_, setCookies] = useCookies("access_token");
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setProfileCookies] = useCookies("profile_id");
 
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);
@@ -50,7 +52,9 @@ const AuthForm = ({ formType, setShowForm }) => {
       };
       const response = await axios.post(`${API_URL}/login`, UserInfo);
       setCookies("access_token", response.data.token);
+      setProfileCookies("access_id", response.data.userId);
       window.localStorage.setItem("userID", response.data.token);
+      window.localStorage.setItem("profileID", response.data.userId);
       setShowForm(false);
     } catch (err) {
       console.log(err);

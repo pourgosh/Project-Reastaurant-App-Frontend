@@ -1,0 +1,7 @@
+.foodWrapperWrapper {
+  display: flex;
+  gap: 7rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}

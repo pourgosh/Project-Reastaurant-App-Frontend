@@ -1,14 +1,17 @@
-const ProfileLink = () => {
-  // eslint-disable-next-line no-unused-vars
-  const profile = window.localStorage.profileID;
+import { useNavigate } from "react-router-dom";
+import "./profileLink.css";
 
+const ProfileLink = () => {
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate("/user/profile");
+  };
   return (
     <>
-      {profile && (
-        <div>
-          <h1 style={{ color: "red", fontSize: "50px" }}>go to profile</h1>
-        </div>
-      )}
+      <div className="profileContainer" onClick={onClick}>
+        <p className="profileText">go to profile</p>
+      </div>
     </>
   );
 };

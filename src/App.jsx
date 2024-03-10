@@ -7,6 +7,7 @@ import StaffPage from "./pages/StaffRegistrationPage/StaffPage";
 import StaffHomePage from "./pages/StaffHomePage/StaffHomePage";
 import ProfileLink from "./components/ProfileLink/ProfileLink";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
+import BurgersSteakPage from "./pages/BurgersSteakPage/BurgersSteakPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/staff/registration" element={<StaffPage />} />
         <Route path="/staff/reservations" element={<StaffHomePage />} />
         <Route path="/user/profile" element={<UserProfilePage />} />
+        <Route path="/burgers&steaks" element={<BurgersSteakPage />} />
       </Routes>
     </>
   );

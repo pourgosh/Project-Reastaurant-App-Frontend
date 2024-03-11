@@ -30,16 +30,47 @@ const MenuLinks = () => {
           ></div>
         </div>
         <div className="itemImgWrapper">
-          <p>Vegetarian</p>
-          <div style={{ backgroundImage: `url(${vegImg})` }}></div>
-        </div>
-        <div className="itemImgWrapper">
-          <p>Finger Food</p>
-          <div style={{ backgroundImage: `url(${fingerFoodImg})` }}></div>
-        </div>
-        <div className="itemImgWrapper">
-          <p>and more...</p>
+          <p
+            onClick={() => {
+              navigate("/vegetarian");
+            }}
+          >
+            Vegetarian
+          </p>
           <div
+            style={{ backgroundImage: `url(${vegImg})` }}
+            onClick={() => {
+              navigate("/vegetarian");
+            }}
+          ></div>
+        </div>
+        <div className="itemImgWrapper">
+          <p
+            onClick={() => {
+              navigate("/fingerfood");
+            }}
+          >
+            Finger Food
+          </p>
+          <div
+            style={{ backgroundImage: `url(${fingerFoodImg})` }}
+            onClick={() => {
+              navigate("/fingerfood");
+            }}
+          ></div>
+        </div>
+        <div className="itemImgWrapper">
+          <p
+            onClick={() => {
+              navigate("/coctails&drinks");
+            }}
+          >
+            and more...
+          </p>
+          <div
+            onClick={() => {
+              navigate("/coctails&drinks");
+            }}
             style={{
               backgroundImage: `url(${drinkDesertImg})`,
             }}

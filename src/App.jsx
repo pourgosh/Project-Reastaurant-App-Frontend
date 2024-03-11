@@ -8,12 +8,15 @@ import StaffHomePage from "./pages/StaffHomePage/StaffHomePage";
 import ProfileLink from "./components/ProfileLink/ProfileLink";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 import BurgersSteakPage from "./pages/BurgersSteakPage/BurgersSteakPage";
+import VegetarianPage from "./pages/VegetarianPage/VegetarianPage";
+import FingerFoodPage from "./pages/FingerFoodPage/FingerFoodPage";
+import CoctailsDesertPage from "./pages/CoctailsDesertPage/CoctailsDesertPage";
 
 function App() {
   return (
     <>
       <NavBar />
-      <ProfileLink />
+      {window.location.pathname === "/admin/control" ? "" : <ProfileLink />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
@@ -22,6 +25,9 @@ function App() {
         <Route path="/staff/reservations" element={<StaffHomePage />} />
         <Route path="/user/profile" element={<UserProfilePage />} />
         <Route path="/burgers&steaks" element={<BurgersSteakPage />} />
+        <Route path="/vegetarian" element={<VegetarianPage />} />
+        <Route path="/fingerfood" element={<FingerFoodPage />} />
+        <Route path="/coctails&drinks" element={<CoctailsDesertPage />} />
       </Routes>
     </>
   );

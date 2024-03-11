@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../../ApiUrl";
 
-const BurgersSteakPage = () => {
+const FingerFoodPage = () => {
   const [foodList, setFoodList] = useState(null);
 
   const getFoodsFromDb = async () => {
@@ -11,12 +11,11 @@ const BurgersSteakPage = () => {
       const result = await axios.get(`${API_URL}/food`);
       setFoodList(
         result.data.filter((elem) => {
-          if (elem.category === "Steak" || elem.category === "Burger") {
+          if (elem.category === "Desert") {
             return elem;
           }
         })
       );
-      console.log("nothing");
     } catch (err) {
       console.error(err);
     }
@@ -25,9 +24,10 @@ const BurgersSteakPage = () => {
   useEffect(() => {
     getFoodsFromDb();
   }, []);
+
   return (
     <div>
-      BurgersSteakPage
+      Our Deserts & Drinks Menu
       <FoodList
         foodList={foodList && foodList}
         WrapperWrapperClassName="foodWrapperWrapper"
@@ -39,4 +39,4 @@ const BurgersSteakPage = () => {
   );
 };
 
-export default BurgersSteakPage;
+export default FingerFoodPage;

@@ -3,6 +3,7 @@ import { useCookies } from "react-cookie";
 import { API_URL } from "../../../ApiUrl";
 import { useEffect, useState } from "react";
 import UserReservations from "../../components/ReservationsList/UserReservationsList.jsx/UserReservations";
+import CreateReservation from "../../components/ReservationsList/CreateReservation/CreateReservation";
 
 const UserProfilePage = () => {
   // eslint-disable-next-line no-unused-vars
@@ -12,6 +13,7 @@ const UserProfilePage = () => {
   const accessID = cookie.access_id;
   const [userInfo, setUserInfo] = useState(null);
   const [displayReservations, setDisplayReservations] = useState(false);
+  const [makeReservation, setMakeReservation] = useState(false);
 
   const getUserInfo = async () => {
     try {
@@ -29,6 +31,10 @@ const UserProfilePage = () => {
     setDisplayReservations(!displayReservations);
   };
 
+  const showCreateForm = () => {
+    setMakeReservation(!makeReservation);
+  };
+
   useEffect(() => {
     getUserInfo();
   }, []);
@@ -44,7 +50,7 @@ const UserProfilePage = () => {
               <p onClick={displayReservationContent}>View Reservations</p>
             </div>
             <div>
-              <p>Make a Reservation</p>
+              <p onClick={showCreateForm}>Make a Reservation</p>
             </div>
             <div>X</div>
           </div>
@@ -54,6 +60,11 @@ const UserProfilePage = () => {
           {displayReservations && (
             <div>
               <UserReservations />
+            </div>
+          )}
+          {makeReservation && (
+            <div>
+              <CreateReservation getUsersInfo={getUserInfo} />
             </div>
           )}
         </div>

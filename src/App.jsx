@@ -16,7 +16,16 @@ function App() {
   return (
     <>
       <NavBar />
-      {window.location.pathname === "/admin/control" ? "" : <ProfileLink />}
+      {window.location.pathname === "/admin/control" ? (
+        ""
+      ) : window.location.pathname === "/staff/registration" ? (
+        ""
+      ) : window.location.pathname === "/staff/reservations" ? (
+        ""
+      ) : (
+        <ProfileLink />
+      )}
+
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />

@@ -10,6 +10,8 @@ const FormInput = ({
   onChange,
   required,
   checked,
+  minValue,
+  maxValue,
 }) => {
   const refFunc = (refrence) => {
     refrence.current.focus();
@@ -35,6 +37,8 @@ const FormInput = ({
         name={inputName && inputName}
         value={inputValue && inputValue}
         onChange={onChange && onChange}
+        min={minValue && minValue}
+        max={maxValue && maxValue}
       />
     </>
   );

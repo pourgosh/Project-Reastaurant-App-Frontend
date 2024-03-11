@@ -4,7 +4,7 @@ import { API_URL } from "../../../../ApiUrl";
 import { useEffect, useState } from "react";
 
 const UserReservations = () => {
-  const [reservation, setReservation] = useState(null);
+  const [reservation, setReservation] = useState([]);
   // eslint-disable-next-line no-unused-vars
   const [tokenCookie, setTokenCookie] = useCookies("access_token");
   // eslint-disable-next-line no-unused-vars
@@ -30,19 +30,43 @@ const UserReservations = () => {
   useEffect(() => {
     getUserReservations();
   }, []);
+  const deleteReservation = async (elem) => {
+    try {
+      const elemID = elem._id;
+      await axios.delete(`${API_URL}/reservation/${elemID}`, {
+        headers: { token: tokenCookie.access_token },
+      });
+      alert("Reservation has been Canceled");
+      getUserReservations();
+    } catch (err) {
+      console.error(err);
+    }
+  };
   return (
     <>
-      {!reservation ? (
-        <h1>No Reservations Found</h1>
-      ) : (
+      {reservation && (
         <div>
           {reservation.map((elem) => {
             return (
               <div key={elem._id}>
                 <p>first name: {elem.reserver.firstName}</p>
+                <div>
+                  <p
+                    onClick={() => {
+                      deleteReservation(elem);
+                    }}
+                  >
+                    Delete Reservation
+                  </p>
+                </div>
               </div>
             );
           })}
+        </div>
+      )}
+      {!reservation.length && (
+        <div>
+          <p>No Reservations Found!</p>
         </div>
       )}
     </>

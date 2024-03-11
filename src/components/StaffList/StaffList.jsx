@@ -15,57 +15,60 @@ const StaffList = ({ staffList, deleteStaffOnClick }) => {
   };
   return (
     <>
-      <div>
-        <div>
-          <p onClick={registrationFormControl}>Add Staff member</p>
-        </div>
-        {showRegistration && (
-          <StaffRegistration setShowRegistration={setShowRegistration} />
-        )}
+      <div className="addStaffBtn">
+        <p onClick={registrationFormControl}>Add Staff member</p>
       </div>
-      <div style={{ margin: "10px" }}>
+      {showRegistration && (
+        <StaffRegistration setShowRegistration={setShowRegistration} />
+      )}
+
+      <div className="staffTitleContainer">
         <p>List of staff members</p>
       </div>
-      {staffList &&
-        staffList.map((elem) => {
-          return (
-            <div key={elem._id} style={{ margin: "10px" }}>
-              <div>
-                <p>first name: {elem.firstName}</p>
-                <p>last name: {elem.lastName}</p>
-                <p>E-mail: {elem.email}</p>
-                {elem.phoneNumber && <p>phone number: {elem.phoneNumber}</p>}
-                {elem.age && <p>Age: {elem.age}</p>}
-                {elem.age && <p>Position: {elem.position}</p>}
+      <div className="staffInfoWrapperWrapper">
+        {staffList &&
+          staffList.map((elem) => {
+            return (
+              <div key={elem._id} className="staffInfoWrapper">
+                <div className="staffInfoContainer">
+                  <p>first name: {elem.firstName}</p>
+                  <p>last name: {elem.lastName}</p>
+                  <p>E-mail: {elem.email}</p>
+                  {elem.phoneNumber && <p>phone number: {elem.phoneNumber}</p>}
+                  {elem.age && <p>Age: {elem.age}</p>}
+                  {elem.age && <p>Position: {elem.position}</p>}
+                </div>
+                <div className="staffOptionsBtn">
+                  <div className="deleteStaffBtn">
+                    <p
+                      onClick={() => {
+                        deleteStaffOnClick(elem);
+                      }}
+                    >
+                      remove staff member
+                    </p>
+                  </div>
+                  <div className="updateStaffBtn">
+                    <p
+                      onClick={() => {
+                        editStaffFormControler(elem._id);
+                      }}
+                    >
+                      Update Staff Member
+                    </p>
+                  </div>
+                </div>
+                {elemToShow === elem._id && (
+                  <EditStaffForm
+                    setElemToShow={setElemToShow}
+                    requestType="post"
+                    elem={elem}
+                  />
+                )}
               </div>
-              <div>
-                <p
-                  onClick={() => {
-                    deleteStaffOnClick(elem);
-                  }}
-                >
-                  remove staff member
-                </p>
-              </div>
-              <div>
-                <p
-                  onClick={() => {
-                    editStaffFormControler(elem._id);
-                  }}
-                >
-                  Update Staff Member
-                </p>
-              </div>
-              {elemToShow === elem._id && (
-                <EditStaffForm
-                  setElemToShow={setElemToShow}
-                  requestType="post"
-                  elem={elem}
-                />
-              )}
-            </div>
-          );
-        })}
+            );
+          })}
+      </div>
     </>
   );
 };

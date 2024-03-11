@@ -6,6 +6,7 @@ import UsersList from "../../components/UsersList/UsersList";
 import FoodList from "../../components/FoodList/FoodList";
 import StaffList from "../../components/StaffList/StaffList";
 import DrinkList from "../../components/DrinkList/DrinkList";
+import "./admin.css";
 
 export const foodContext = createContext();
 export const staffContext = createContext();
@@ -116,7 +117,14 @@ const AdminPage = () => {
         deleteUsersonClick={deleteUsersonClick}
       />
       <foodContext.Provider value={getFoodsFromDb}>
-        <FoodList foodList={foodList} deleteFoodOnClick={deleteFoodOnClick} />
+        <FoodList
+          foodList={foodList}
+          deleteFoodOnClick={deleteFoodOnClick}
+          WrapperWrapperClassName="foodWrapperWrapper"
+          wrapperClassName="foodInfoWrapper"
+          imageContainer="foodImage"
+          infoTextContainer="foodInfoContainer"
+        />
       </foodContext.Provider>
       <staffContext.Provider value={getStaffFromDb}>
         <StaffList
@@ -128,6 +136,10 @@ const AdminPage = () => {
         <DrinkList
           deleteDrinkOnClick={deleteDrinkOnClick}
           drinkList={drinkList}
+          WrapperWrapperClassName="drinkListWrapperWrapper"
+          wrapperClassName="drinkListWrapper"
+          itemClassName="itemContainer"
+          infoTextContainer="drinkInfoContainer"
         />
       </drinkContext.Provider>
     </div>

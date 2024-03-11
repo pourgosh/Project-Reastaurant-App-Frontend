@@ -9,6 +9,7 @@ const DrinkList = ({
   wrapperClassName,
   imageContainer,
   infoTextContainer,
+  itemClassName,
 }) => {
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [elemToShow, setElemToShow] = useState(null);
@@ -26,65 +27,64 @@ const DrinkList = ({
   return (
     <div className={WrapperWrapperClassName && WrapperWrapperClassName}>
       {parameter === "/admin/control" && (
-        <div>
+        <div className="createDrinkBtn">
           <p onClick={formControler}>Create new Drink</p>
         </div>
       )}
       {showCreateForm && (
         <DrinkListForm requestType="post" drinkList={drinkList} />
       )}
-      {drinkList &&
-        drinkList.map((elem) => {
-          return (
-            <div
-              key={elem._id}
-              className={wrapperClassName && wrapperClassName}
-            >
-              <p> {elem.title}</p>
-              {elem.image && (
-                <div className={imageContainer && imageContainer}>
-                  <img src={elem.image} alt="item image" />
-                </div>
-              )}
-              <div className={infoTextContainer && infoTextContainer}>
-                {elem.origin && <p>origin: {elem.origin}</p>}
-                {elem.type && <p>type: {elem.type}</p>}
-                {elem.category && <p>category: {elem.category}</p>}
-                <p>{elem.price}$</p>
-              </div>
-              {parameter === "/admin/control" && (
-                <div>
-                  <div>
-                    <p
-                      onClick={() => {
-                        deleteDrinkOnClick(elem);
-                      }}
-                    >
-                      Delete Drink
-                    </p>
+      <div className={wrapperClassName && wrapperClassName}>
+        {drinkList &&
+          drinkList.map((elem) => {
+            return (
+              <div key={elem._id} className={itemClassName && itemClassName}>
+                <p> {elem.title}</p>
+                {elem.image && (
+                  <div className={imageContainer && imageContainer}>
+                    <img src={elem.image} alt="item image" />
                   </div>
+                )}
+                <div className={infoTextContainer && infoTextContainer}>
+                  {elem.origin && <p>origin: {elem.origin}</p>}
+                  {elem.type && <p>type: {elem.type}</p>}
+                  {elem.category && <p>category: {elem.category}</p>}
+                  <p>{elem.price}$</p>
+                </div>
+                {parameter === "/admin/control" && (
+                  <div className="optionsWrapper">
+                    <div className="optionsContainer">
+                      <p
+                        onClick={() => {
+                          deleteDrinkOnClick(elem);
+                        }}
+                      >
+                        Delete Drink
+                      </p>
+                    </div>
 
-                  <div>
-                    <p
-                      onClick={() => {
-                        editFormControler(elem._id);
-                      }}
-                    >
-                      Update Drink
-                    </p>
+                    <div className="optionsContainer">
+                      <p
+                        onClick={() => {
+                          editFormControler(elem._id);
+                        }}
+                      >
+                        Update Drink
+                      </p>
+                    </div>
                   </div>
-                </div>
-              )}
-              {elemToShow === elem._id && (
-                <EditDrinkListForm
-                  requestType="put"
-                  elem={elem}
-                  setElemToShow={setElemToShow}
-                />
-              )}
-            </div>
-          );
-        })}
+                )}
+                {elemToShow === elem._id && (
+                  <EditDrinkListForm
+                    requestType="put"
+                    elem={elem}
+                    setElemToShow={setElemToShow}
+                  />
+                )}
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };

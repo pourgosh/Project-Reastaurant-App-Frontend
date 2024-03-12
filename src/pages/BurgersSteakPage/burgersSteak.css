@@ -3,18 +3,53 @@
   justify-content: center;
   align-items: center;
   padding-top: 1rem;
+  padding: 25px;
 }
 .grillPageTitle p {
   font-size: 4rem;
 }
 .foodListMain {
-  padding-top: 1rem;
+  padding: 4rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 3rem;
+  background-color: #121212;
 }
 .foodsContainer {
   flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 5px solid whitesmoke;
+  border-radius: 15px;
+}
+.foodsContainer p {
+  font-size: 2.5rem;
+  padding: 20px;
+  color: whitesmoke;
+}
+.imgContainer {
+  display: flex;
+  border-bottom: 5px solid whitesmoke;
+  width: 100%;
+}
+.imgContainer img {
+  object-fit: contain;
+  flex: 1;
+  height: 45dvh;
+}
+.foodDetailsContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 5px;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+.foodDetailsContainer p {
+  font-size: 1.5rem;
+  color: whitesmoke;
 }

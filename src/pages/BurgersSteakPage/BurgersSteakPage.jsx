@@ -29,7 +29,7 @@ const BurgersSteakPage = () => {
   return (
     <div>
       <div className="grillPageTitle">
-        <p>BurgersSteakPage</p>
+        <p>Burgers & Steaks</p>
       </div>
       <PublicFoodList foodList={foodList && foodList} />
     </div>

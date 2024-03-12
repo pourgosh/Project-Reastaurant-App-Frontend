@@ -21,6 +21,8 @@ const AdminPage = () => {
   // eslint-disable-next-line no-unused-vars
   const [cookies, _] = useCookies(["access_token"]);
 
+  const STAFF_ID = localStorage.getItem("staffID");
+
   const getUsersFromDb = async () => {
     try {
       const result = await axios.get(`${API_URL}/users`, {
@@ -111,38 +113,42 @@ const AdminPage = () => {
     }
   };
   return (
-    <div>
-      <UsersList
-        usersList={usersList}
-        deleteUsersonClick={deleteUsersonClick}
-      />
-      <foodContext.Provider value={getFoodsFromDb}>
-        <FoodList
-          foodList={foodList}
-          deleteFoodOnClick={deleteFoodOnClick}
-          WrapperWrapperClassName="foodWrapperWrapper"
-          wrapperClassName="foodInfoWrapper"
-          imageContainer="foodImage"
-          infoTextContainer="foodInfoContainer"
-        />
-      </foodContext.Provider>
-      <staffContext.Provider value={getStaffFromDb}>
-        <StaffList
-          staffList={staffList}
-          deleteStaffOnClick={deleteStaffOnClick}
-        />
-      </staffContext.Provider>
-      <drinkContext.Provider value={getDrinkFromDb}>
-        <DrinkList
-          deleteDrinkOnClick={deleteDrinkOnClick}
-          drinkList={drinkList}
-          WrapperWrapperClassName="drinkListWrapperWrapper"
-          wrapperClassName="drinkListWrapper"
-          itemClassName="itemContainer"
-          infoTextContainer="drinkInfoContainer"
-        />
-      </drinkContext.Provider>
-    </div>
+    <>
+      {STAFF_ID && (
+        <div>
+          <UsersList
+            usersList={usersList}
+            deleteUsersonClick={deleteUsersonClick}
+          />
+          <foodContext.Provider value={getFoodsFromDb}>
+            <FoodList
+              foodList={foodList}
+              deleteFoodOnClick={deleteFoodOnClick}
+              WrapperWrapperClassName="foodWrapperWrapper"
+              wrapperClassName="foodInfoWrapper"
+              imageContainer="foodImage"
+              infoTextContainer="foodInfoContainer"
+            />
+          </foodContext.Provider>
+          <staffContext.Provider value={getStaffFromDb}>
+            <StaffList
+              staffList={staffList}
+              deleteStaffOnClick={deleteStaffOnClick}
+            />
+          </staffContext.Provider>
+          <drinkContext.Provider value={getDrinkFromDb}>
+            <DrinkList
+              deleteDrinkOnClick={deleteDrinkOnClick}
+              drinkList={drinkList}
+              WrapperWrapperClassName="drinkListWrapperWrapper"
+              wrapperClassName="drinkListWrapper"
+              itemClassName="itemContainer"
+              infoTextContainer="drinkInfoContainer"
+            />
+          </drinkContext.Provider>
+        </div>
+      )}
+    </>
   );
 };
 

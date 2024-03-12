@@ -19,14 +19,14 @@ const AdminPage = () => {
   const [drinkList, setDrinkList] = useState(null);
 
   // eslint-disable-next-line no-unused-vars
-  const [cookies, _] = useCookies(["access_token"]);
+  const [cookies, _] = useCookies("access_token");
 
   const STAFF_ID = localStorage.getItem("staffID");
 
   const getUsersFromDb = async () => {
     try {
       const result = await axios.get(`${API_URL}/users`, {
-        headers: { token: cookies.access_token },
+        headers: { token: STAFF_ID },
       });
       setUsersList(result.data);
     } catch (err) {
@@ -37,7 +37,7 @@ const AdminPage = () => {
   const getFoodsFromDb = async () => {
     try {
       const result = await axios.get(`${API_URL}/food`, {
-        headers: { token: cookies.access_token },
+        headers: { token: STAFF_ID },
       });
       setFoodList(result.data);
     } catch (err) {
@@ -48,7 +48,7 @@ const AdminPage = () => {
   const getStaffFromDb = async () => {
     try {
       const result = await axios.get(`${API_URL}/staff`, {
-        headers: { token: cookies.access_token },
+        headers: { token: STAFF_ID },
       });
       setStaffList(result.data);
     } catch (err) {
@@ -75,7 +75,7 @@ const AdminPage = () => {
   const deleteUsersonClick = async (elem) => {
     try {
       await axios.delete(`${API_URL}/users/${elem._id}`, {
-        headers: { token: cookies.access_token },
+        headers: { token: STAFF_ID },
       });
       getUsersFromDb();
     } catch (err) {
@@ -85,7 +85,7 @@ const AdminPage = () => {
   const deleteFoodOnClick = async (elem) => {
     try {
       await axios.delete(`${API_URL}/food/${elem._id}`, {
-        headers: { token: cookies.access_token },
+        headers: { token: STAFF_ID },
       });
       getFoodsFromDb();
     } catch (err) {
@@ -105,7 +105,7 @@ const AdminPage = () => {
   const deleteDrinkOnClick = async (elem) => {
     try {
       await axios.delete(`${API_URL}/drink/${elem._id}`, {
-        headers: cookies.access_token,
+        headers: { token: STAFF_ID },
       });
       getDrinkFromDb();
     } catch (err) {
@@ -116,6 +116,19 @@ const AdminPage = () => {
     <>
       {STAFF_ID && (
         <div>
+          <div>
+            <button
+              onClick={() => {
+                localStorage.removeItem("staffID");
+                getUsersFromDb();
+                getFoodsFromDb();
+                getStaffFromDb();
+                getDrinkFromDb();
+              }}
+            >
+              Log-Out
+            </button>
+          </div>
           <UsersList
             usersList={usersList}
             deleteUsersonClick={deleteUsersonClick}

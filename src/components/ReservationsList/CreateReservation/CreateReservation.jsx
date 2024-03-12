@@ -4,7 +4,7 @@ import axios from "axios";
 import { API_URL } from "../../../../ApiUrl";
 import { useCookies } from "react-cookie";
 
-const CreateReservation = ({ getUsersInfo }) => {
+const CreateReservation = ({ getUsersInfo, setMakeReservation }) => {
   // eslint-disable-next-line no-unused-vars
   const [cookie, _] = useCookies("access_token");
 
@@ -28,6 +28,7 @@ const CreateReservation = ({ getUsersInfo }) => {
         headers: { token: cookie.access_token },
       });
       getUsersInfo();
+      setMakeReservation(false);
     } catch (err) {
       console.error(err);
     }
@@ -45,9 +46,8 @@ const CreateReservation = ({ getUsersInfo }) => {
   //   };
 
   return (
-    <div>
-      CreateReservation Form
-      <form onSubmit={submitReservation}>
+    <div className="reservationFormWrapper">
+      <form onSubmit={submitReservation} className="reservationForm">
         <FormInput
           inputType="time"
           inputText="Time"

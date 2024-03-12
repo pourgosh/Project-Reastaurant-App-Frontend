@@ -9,7 +9,7 @@ const ProfileLink = () => {
   };
   return (
     <>
-      <div className="profileContainer" onClick={onClick}>
+      <div className="profileLink" onClick={onClick}>
         <p className="profileText">go to profile</p>
       </div>
     </>

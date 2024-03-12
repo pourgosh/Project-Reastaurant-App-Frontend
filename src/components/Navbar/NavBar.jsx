@@ -10,7 +10,10 @@ const NavBar = () => {
   const [showForm, setShowForm] = useState(false);
   const [formType, setFormType] = useState("");
 
-  const [cookies, setCookies] = useCookies(["access_token"]);
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies] = useCookies("access_token");
+
+  const storageToken = localStorage.getItem("userID");
 
   const logout = () => {
     setCookies("access_token", "");
@@ -18,9 +21,10 @@ const NavBar = () => {
     window.localStorage.removeItem("staffID");
     window.localStorage.removeItem("profileID");
   };
+
   return (
     <>
-      {!cookies.access_token ? (
+      {!storageToken ? (
         <div className="navbarWrapper">
           <div className="navbarImgContainer">
             <img src={logo} />

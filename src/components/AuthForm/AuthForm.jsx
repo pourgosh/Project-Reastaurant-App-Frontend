@@ -4,6 +4,7 @@ import { useCookies } from "react-cookie";
 import FormInput from "./FormInput/FormInput";
 import { API_URL } from "../../../ApiUrl";
 import "./form.css";
+import { useNavigate } from "react-router-dom";
 
 const AuthForm = ({ formType, setShowForm }) => {
   const [newUser, setNewUser] = useState({
@@ -16,6 +17,8 @@ const AuthForm = ({ formType, setShowForm }) => {
     email: "",
     password: "",
   });
+
+  const navigate = useNavigate();
 
   // eslint-disable-next-line no-unused-vars
   const [_, setCookies] = useCookies("access_token");
@@ -56,6 +59,8 @@ const AuthForm = ({ formType, setShowForm }) => {
       window.localStorage.setItem("userID", response.data.token);
       window.localStorage.setItem("profileID", response.data.userId);
       setShowForm(false);
+      navigate("/");
+      location.reload();
     } catch (err) {
       console.log(err);
     }

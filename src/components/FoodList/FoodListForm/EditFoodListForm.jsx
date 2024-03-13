@@ -153,71 +153,6 @@ const EditFoodListForm = ({ requestType, elem, setElemToShow }) => {
           }}
         />
         <FormInput
-          inputText="Vegetarian"
-          inputType="radio"
-          checked={foodInfo.category === "Vegetarian" && "checked"}
-          inputName="category"
-          inputValue="Vegetarian"
-          onChange={(e) => {
-            setFoodInfo({
-              ...foodInfo,
-              category: e.target.value,
-            });
-          }}
-        />
-        <FormInput
-          inputText="Steak"
-          inputType="radio"
-          checked={foodInfo.category === "Steak" && "checked"}
-          inputName="category"
-          inputValue="Steak"
-          onChange={(e) => {
-            setFoodInfo({
-              ...foodInfo,
-              category: e.target.value,
-            });
-          }}
-        />
-        <FormInput
-          inputText="Burger"
-          inputType="radio"
-          checked={foodInfo.category === "Burger" && "checked"}
-          inputName="category"
-          inputValue="Burger"
-          onChange={(e) => {
-            setFoodInfo({
-              ...foodInfo,
-              category: e.target.value,
-            });
-          }}
-        />
-        <FormInput
-          inputText="Finger-food"
-          inputType="radio"
-          checked={foodInfo.category === "Finger-food" && "checked"}
-          inputName="category"
-          inputValue="Finger-food"
-          onChange={(e) => {
-            setFoodInfo({
-              ...foodInfo,
-              category: e.target.value,
-            });
-          }}
-        />
-        <FormInput
-          inputText="Desert"
-          inputType="radio"
-          checked={foodInfo.category === "Desert" && "checked"}
-          inputName="category"
-          inputValue="Desert"
-          onChange={(e) => {
-            setFoodInfo({
-              ...foodInfo,
-              category: e.target.value,
-            });
-          }}
-        />
-        <FormInput
           inputText="price"
           inputType="text"
           inputValue={foodInfo.price}
@@ -228,6 +163,73 @@ const EditFoodListForm = ({ requestType, elem, setElemToShow }) => {
             });
           }}
         />
+        <div className="updateRadioOpt">
+          <FormInput
+            inputText="Vegetarian"
+            inputType="radio"
+            checked={foodInfo.category === "Vegetarian" && "checked"}
+            inputName="category"
+            inputValue="Vegetarian"
+            onChange={(e) => {
+              setFoodInfo({
+                ...foodInfo,
+                category: e.target.value,
+              });
+            }}
+          />
+          <FormInput
+            inputText="Steak"
+            inputType="radio"
+            checked={foodInfo.category === "Steak" && "checked"}
+            inputName="category"
+            inputValue="Steak"
+            onChange={(e) => {
+              setFoodInfo({
+                ...foodInfo,
+                category: e.target.value,
+              });
+            }}
+          />
+          <FormInput
+            inputText="Burger"
+            inputType="radio"
+            checked={foodInfo.category === "Burger" && "checked"}
+            inputName="category"
+            inputValue="Burger"
+            onChange={(e) => {
+              setFoodInfo({
+                ...foodInfo,
+                category: e.target.value,
+              });
+            }}
+          />
+          <FormInput
+            inputText="Finger-food"
+            inputType="radio"
+            checked={foodInfo.category === "Finger-food" && "checked"}
+            inputName="category"
+            inputValue="Finger-food"
+            onChange={(e) => {
+              setFoodInfo({
+                ...foodInfo,
+                category: e.target.value,
+              });
+            }}
+          />
+          <FormInput
+            inputText="Desert"
+            inputType="radio"
+            checked={foodInfo.category === "Desert" && "checked"}
+            inputName="category"
+            inputValue="Desert"
+            onChange={(e) => {
+              setFoodInfo({
+                ...foodInfo,
+                category: e.target.value,
+              });
+            }}
+          />
+        </div>
         <div>
           <p onClick={updateOnSubmit}>submit update</p>
         </div>

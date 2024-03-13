@@ -30,6 +30,7 @@ const LoginStaffForm = () => {
         setCookies("access_token", response.data.token);
         window.localStorage.setItem("staffID", response.data.token);
         navigate("/staff/reservations");
+        location.reload();
       } else {
         navigate("/");
       }

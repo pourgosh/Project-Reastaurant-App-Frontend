@@ -44,10 +44,22 @@ const StaffHomePage = () => {
 
   return (
     <div>
-      <ReservationsList
-        list={reservationsList}
-        deleteFunc={deleteReservation}
-      />
+      <div>
+        <button
+          onClick={() => {
+            localStorage.removeItem("staffID");
+            location.reload();
+          }}
+        >
+          log-out
+        </button>
+      </div>
+      <div>
+        <ReservationsList
+          list={reservationsList}
+          deleteFunc={deleteReservation}
+        />
+      </div>
     </div>
   );
 };

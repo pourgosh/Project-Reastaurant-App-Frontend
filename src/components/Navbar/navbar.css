@@ -60,6 +60,9 @@
   width: 100%;
   height: 100%;
 }
+.navbarImgContainer img:hover {
+  cursor: pointer;
+}
 .navbarLinks {
   display: flex;
   justify-content: center;

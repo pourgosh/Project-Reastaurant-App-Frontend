@@ -46,6 +46,8 @@ const EditFoodListForm = ({ requestType, elem, setElemToShow }) => {
     }
   };
 
+  const staffID = localStorage.getItem("staffID");
+
   useEffect(() => {
     getFoodItemById();
   }, []);
@@ -66,7 +68,7 @@ const EditFoodListForm = ({ requestType, elem, setElemToShow }) => {
         price: foodInfo.price,
       };
       await axios.put(`${API_URL}/food/${elemID}`, newFoodInfo, {
-        headers: { token: cookies.access_token },
+        headers: { token: staffID },
       });
       getFoodsFromDb();
       closeEditForm();

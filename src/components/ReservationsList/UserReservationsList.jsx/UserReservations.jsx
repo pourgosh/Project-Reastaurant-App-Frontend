@@ -45,12 +45,14 @@ const UserReservations = () => {
   return (
     <>
       {reservation && (
-        <div>
+        <div className="reservationInfoWrapper">
           {reservation.map((elem) => {
             return (
-              <div key={elem._id}>
-                <p>first name: {elem.reserver.firstName}</p>
-                <div>
+              <div key={elem._id} className="reservationItemWrapper">
+                <div className="reservationInfo">
+                  <p>first name: {elem.reserver.firstName}</p>
+                </div>
+                <div className="deleteBtn">
                   <p
                     onClick={() => {
                       deleteReservation(elem);
@@ -65,7 +67,7 @@ const UserReservations = () => {
         </div>
       )}
       {!reservation.length && (
-        <div>
+        <div className="noContentInfo">
           <p>No Reservations Found!</p>
         </div>
       )}

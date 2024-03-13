@@ -22,6 +22,8 @@ const EditDrinkListForm = ({ requestType, elem, setElemToShow }) => {
     price: 0,
   });
 
+  const staffID = localStorage.getItem("staffID");
+
   const getDrinkItemById = async () => {
     try {
       const elemID = elem._id;
@@ -58,7 +60,7 @@ const EditDrinkListForm = ({ requestType, elem, setElemToShow }) => {
         price: drinkInfo.price,
       };
       await axios.put(`${API_URL}/drink/${elemID}`, newDrinkInfo, {
-        headers: cookies.access_token,
+        headers: staffID,
       });
       closeDrinkEditForm();
       getDrinksFromDb();

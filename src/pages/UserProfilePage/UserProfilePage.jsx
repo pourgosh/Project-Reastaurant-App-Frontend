@@ -4,6 +4,8 @@ import { API_URL } from "../../../ApiUrl";
 import { useEffect, useState } from "react";
 import UserReservations from "../../components/ReservationsList/UserReservationsList.jsx/UserReservations";
 import CreateReservation from "../../components/ReservationsList/CreateReservation/CreateReservation";
+import "./userProfile.css";
+import UpdateUserInfo from "../../components/UpdateUserInfo/UpdateUserInfo";
 
 const UserProfilePage = () => {
   // eslint-disable-next-line no-unused-vars
@@ -14,11 +16,14 @@ const UserProfilePage = () => {
   const [userInfo, setUserInfo] = useState(null);
   const [displayReservations, setDisplayReservations] = useState(false);
   const [makeReservation, setMakeReservation] = useState(false);
+  const [dashboard, setDashboard] = useState(false);
+  const [editForm, setEditForm] = useState(false);
+  const userToken = localStorage.getItem("userID");
 
   const getUserInfo = async () => {
     try {
       const result = await axios.get(`${API_URL}/users/${accessID}`, {
-        headers: { token: tokenCookie.access_token },
+        headers: { token: userToken },
       });
 
       setUserInfo(result.data);
@@ -27,14 +32,32 @@ const UserProfilePage = () => {
     }
   };
 
+  const displayDashboard = () => {
+    setDashboard(!dashboard);
+  };
+
   const displayReservationContent = () => {
     setDisplayReservations(!displayReservations);
+    if (makeReservation || editForm) {
+      setMakeReservation(false);
+      setEditForm(false);
+    }
   };
 
   const showCreateForm = () => {
     setMakeReservation(!makeReservation);
+    if (displayReservations || editForm) {
+      setDisplayReservations(false);
+      setEditForm(false);
+    }
   };
-
+  const showEditForm = () => {
+    setEditForm(!editForm);
+    if (displayReservations || makeReservation) {
+      setDisplayReservations(false);
+      setMakeReservation(false);
+    }
+  };
   useEffect(() => {
     getUserInfo();
   }, []);
@@ -45,28 +68,72 @@ const UserProfilePage = () => {
         <h1>Profile Not Found!</h1>
       ) : (
         <div>
-          <div className="reservationControl">
-            <div>
-              <p onClick={displayReservationContent}>View Reservations</p>
+          <div className="dashboardWrapper">
+            <div className="userInfoContainer">
+              <div className="userInfo">
+                {userInfo.avatar && (
+                  <div className="userAvatar">
+                    <img src={userInfo.avatar} alt="profile image" />
+                  </div>
+                )}
+                <div className="userInfoTextWrapper">
+                  <div className="userInfoTextContainer">
+                    <p className="infoTitle">Name</p>
+                    <p>
+                      {userInfo.firstName} {userInfo.lastName}
+                    </p>
+                    <p className="infoTitle">age</p>
+                    <p>{userInfo.age ? userInfo.age : ""}</p>
+                    <p className="infoTitle">E-mail Address</p>
+                    <p>{userInfo.email}</p>
+                    <p className="infoTitle">Phone-number</p>
+                    <p>{userInfo.phoneNumber ? userInfo.phoneNumber : ""}</p>
+                    <div className="userDescription">
+                      <p className="infoTitle">Description</p>
+                      <p>{userInfo.description ? userInfo.description : ""}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-              <p onClick={showCreateForm}>Make a Reservation</p>
+            <div className="dashboardContainer">
+              <div className="profileDashboard">
+                <p onClick={displayDashboard}>dashboard</p>
+              </div>
+              {dashboard && (
+                <div className="dashboardSettings">
+                  <div className="setting">
+                    <p onClick={displayReservationContent}>View Reservations</p>
+                  </div>
+                  <div className="setting">
+                    <p onClick={showCreateForm}>Make a Reservation</p>
+                  </div>
+                  <div className="setting">
+                    <p onClick={showEditForm}>Edit Profile</p>
+                  </div>
+                  {displayReservations && (
+                    <div className="reservationInfoMain">
+                      <UserReservations />
+                    </div>
+                  )}
+                  {makeReservation && (
+                    <div>
+                      <CreateReservation
+                        getUsersInfo={getUserInfo}
+                        setMakeReservation={setMakeReservation}
+                      />
+                    </div>
+                  )}
+                  {editForm && (
+                    <UpdateUserInfo
+                      userInfo={userInfo}
+                      getUserInfo={getUserInfo}
+                    />
+                  )}
+                </div>
+              )}
             </div>
-            <div>X</div>
           </div>
-          <div>
-            <p>{userInfo.firstName}</p>
-          </div>
-          {displayReservations && (
-            <div>
-              <UserReservations />
-            </div>
-          )}
-          {makeReservation && (
-            <div>
-              <CreateReservation getUsersInfo={getUserInfo} />
-            </div>
-          )}
         </div>
       )}
     </>

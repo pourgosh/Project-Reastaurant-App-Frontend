@@ -21,6 +21,8 @@ const DrinkListForm = ({ requestType, className, ...props }) => {
     price: 0,
   });
 
+  const staffID = localStorage.getItem("staffID");
+
   const createDrinkItem = async (e) => {
     e.preventDefault();
     try {
@@ -33,7 +35,7 @@ const DrinkListForm = ({ requestType, className, ...props }) => {
         price: drinkInfo.price,
       };
       await axios.post(`${API_URL}/drink`, newDrinkItem, {
-        headers: { token: cookies.access_token },
+        headers: { token: staffID },
       });
       getDrinksFunction();
     } catch (err) {

@@ -1,0 +1,160 @@
+.dashboardWrapper {
+  display: flex;
+  padding: 5px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-right: 6.2%;
+}
+.userInfoContainer {
+  flex: 1;
+  padding-top: 4%;
+  padding-right: 1%;
+}
+.userInfo {
+  padding: 10px;
+  display: flex;
+  background-color: #121212;
+}
+.userAvatar {
+  height: 60dvh;
+  padding-left: 9%;
+}
+.userAvatar img {
+  height: 100%;
+  object-fit: contain;
+}
+.userInfoTextWrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 3%;
+  gap: 5px;
+}
+.userInfoTextContainer {
+  width: max-content;
+  display: flex;
+  gap: 1dvh;
+  flex-direction: column;
+  border-left: 2px solid whitesmoke;
+  padding-left: 5%;
+}
+.userInfoTextContainer p {
+  font-size: 1.5rem;
+  color: whitesmoke;
+}
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  flex: 1;
+  max-width: 9dvw;
+}
+.profileDashboard {
+  padding: 15px;
+  border: 2px solid whitesmoke;
+  border-radius: 30px;
+  background-color: #121212;
+}
+.profileDashboard p {
+  font-size: 1.5rem;
+  color: whitesmoke;
+}
+.profileDashboard p:hover {
+  cursor: pointer;
+}
+.dashboardSettings {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.setting {
+  padding: 5px;
+  border: 2px solid whitesmoke;
+  border-radius: 15px;
+  background-color: #121212cc;
+}
+.setting p {
+  color: whitesmoke;
+  font-size: 1.2rem;
+}
+.setting p:hover {
+  cursor: pointer;
+}
+.reservationInfoMain {
+  display: flex;
+  width: 20dvw;
+  justify-content: center;
+  padding-top: 15px;
+}
+.reservationInfoWrapper {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #1212126e;
+  border-radius: 20px;
+}
+.reservationItemWrapper {
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+  gap: 5px;
+}
+.reservationInfo {
+  border-bottom: 2px solid rgb(0 0 0 / 42%);
+  padding: 5px;
+  gap: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reservationInfo p {
+  font-size: 1.4rem;
+}
+.deleteBtn {
+  border: 2px solid whitesmoke;
+  border-radius: 15px;
+  padding: 5px;
+}
+.deleteBtn p:hover {
+  cursor: pointer;
+}
+.reservationForm {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  background-color: #1212126e;
+  border-radius: 10px;
+}
+.editUserForm {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 5px;
+  gap: 5px;
+  background-color: #1212126e;
+  border-radius: 10px;
+}
+.userDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.userInfoTextContainer .infoTitle {
+  font-size: 1.8rem;
+}

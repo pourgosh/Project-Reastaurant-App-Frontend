@@ -1,7 +1,7 @@
-import FoodList from "../../components/FoodList/FoodList";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../../ApiUrl";
+import PublicFoodList from "../../components/PublicFoodList/PublicFoodList";
 
 const FingerFoodPage = () => {
   const [foodList, setFoodList] = useState(null);
@@ -28,13 +28,7 @@ const FingerFoodPage = () => {
   return (
     <div>
       Our Finger Food Menu
-      <FoodList
-        foodList={foodList && foodList}
-        WrapperWrapperClassName="foodWrapperWrapper"
-        wrapperClassName="foodItemWrapper"
-        imageContainer="foodImgContainer"
-        infoTextContainer="foodInfoTxtContainer"
-      />
+      <PublicFoodList foodList={foodList} />
     </div>
   );
 };

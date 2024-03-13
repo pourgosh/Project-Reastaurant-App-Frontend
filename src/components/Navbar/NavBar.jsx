@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
@@ -10,7 +10,12 @@ const NavBar = () => {
   const [showForm, setShowForm] = useState(false);
   const [formType, setFormType] = useState("");
 
-  const [cookies, setCookies] = useCookies(["access_token"]);
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookies] = useCookies("access_token");
+
+  const storageToken = localStorage.getItem("userID");
+
+  const navigate = useNavigate();
 
   const logout = () => {
     setCookies("access_token", "");
@@ -18,12 +23,19 @@ const NavBar = () => {
     window.localStorage.removeItem("staffID");
     window.localStorage.removeItem("profileID");
   };
+
   return (
     <>
-      {!cookies.access_token ? (
+      {!storageToken ? (
         <div className="navbarWrapper">
           <div className="navbarImgContainer">
-            <img src={logo} />
+            <img
+              src={logo}
+              onClick={() => {
+                navigate("/");
+                console.log("yoyo");
+              }}
+            />
           </div>
           <div className="navbarLinks">
             <Link to="/">Home</Link>
@@ -56,7 +68,13 @@ const NavBar = () => {
       ) : (
         <div className="loginNavbarWrapper">
           <div className="navbarImgContainer">
-            <img src={logo} />
+            <img
+              src={logo}
+              onClick={() => {
+                navigate("/");
+                console.log("yoyo");
+              }}
+            />
           </div>
           <div className="navbarLinks">
             <Link to="/">Home</Link>

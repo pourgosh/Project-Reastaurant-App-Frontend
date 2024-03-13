@@ -95,7 +95,7 @@ const AdminPage = () => {
   const deleteStaffOnClick = async (elem) => {
     try {
       await axios.delete(`${API_URL}/staff/${elem._id}`, {
-        headers: { token: cookies.access_token },
+        headers: { token: STAFF_ID },
       });
       getStaffFromDb();
     } catch (err) {

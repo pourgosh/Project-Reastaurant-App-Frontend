@@ -20,6 +20,7 @@ const FoodListForm = ({ requestType, className, ...props }) => {
     category: "",
     price: 0,
   });
+  const staffID = localStorage.getItem("staffID");
 
   const createFoodItem = async () => {
     try {
@@ -34,7 +35,7 @@ const FoodListForm = ({ requestType, className, ...props }) => {
         price: foodInfo.price,
       };
       await axios.post(`${API_URL}/food`, newFoodItem, {
-        headers: { token: cookies.access_token },
+        headers: { token: staffID },
       });
       getFoodsFunction();
     } catch (err) {

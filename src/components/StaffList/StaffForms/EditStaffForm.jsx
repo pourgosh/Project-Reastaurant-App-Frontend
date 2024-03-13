@@ -9,19 +9,21 @@ const EditStaffForm = ({ requestType, elem, setElemToShow }) => {
   // eslint-disable-next-line no-unused-vars
   const [cookies, _] = useCookies("access_token");
 
+  const staffID = localStorage.getItem("staffID");
+
   const getStaffFromDb = useContext(staffContext);
 
   const closeEditForm = () => {
     setElemToShow(false);
   };
   const [staffInfo, setStaffInfo] = useState({
-    _id: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-    age: "",
-    position: "",
+    _id: elem._id,
+    firstName: elem.firstName,
+    lastName: elem.lastName,
+    email: elem.email,
+    phoneNumber: elem.phoneNumber,
+    age: elem.age,
+    position: elem.position,
   });
 
   const getStaffById = async () => {
@@ -62,7 +64,7 @@ const EditStaffForm = ({ requestType, elem, setElemToShow }) => {
         position: staffInfo.position,
       };
       await axios.put(`${API_URL}/staff/${elemID}`, newStaffInfo, {
-        headers: { token: cookies.access_token },
+        headers: { token: staffID },
       });
       getStaffFromDb();
     } catch (err) {

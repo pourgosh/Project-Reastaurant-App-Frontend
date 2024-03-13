@@ -1,0 +1,57 @@
+.grillItemsWrapper {
+  flex: 1;
+  display: flex;
+  padding-left: 4%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.grillItemsWrapper div {
+  background-size: contain;
+  height: 40dvh;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+.grillItemsWrapper p {
+  font-size: 4rem;
+  color: white;
+  padding-bottom: 2rem;
+}
+.itemImgWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding-right: 3rem;
+}
+.itemImgWrapper div {
+  background-size: contain;
+  height: 40dvh;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+.itemImgWrapper p {
+  font-size: 4rem;
+  color: white;
+  padding-bottom: 2rem;
+}
+
+.grillItemsWrapper div:hover {
+  cursor: pointer;
+}
+.itemImgWrapper div:hover {
+  cursor: pointer;
+}
+.itemImgWrapper p:hover {
+  cursor: pointer;
+}
+.grillItemsWrapper p:hover {
+  cursor: pointer;
+}

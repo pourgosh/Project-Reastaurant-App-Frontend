@@ -15,8 +15,9 @@ const NavBar = () => {
   const logout = () => {
     setCookies("access_token", "");
     window.localStorage.removeItem("userID");
+    window.localStorage.removeItem("staffID");
+    window.localStorage.removeItem("profileID");
   };
-
   return (
     <>
       {!cookies.access_token ? (

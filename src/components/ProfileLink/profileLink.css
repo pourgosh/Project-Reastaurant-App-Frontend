@@ -1,0 +1,17 @@
+.profileContainer {
+  position: fixed;
+  top: 88%;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 10000000000000000000000000;
+  left: 1%;
+  background-color: red;
+  height: 10dvh;
+}
+.profileContainer p {
+  font-size: 1.6rem;
+}
+.profileContainer:hover {
+  cursor: pointer;
+}

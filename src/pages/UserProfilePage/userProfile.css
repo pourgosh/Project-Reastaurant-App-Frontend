@@ -55,16 +55,14 @@
   max-width: 9dvw;
 }
 .profileDashboard {
-  padding: 15px;
-  border: 2px solid whitesmoke;
-  border-radius: 30px;
-  background-color: #121212;
+  width: 20%;
 }
-.profileDashboard p {
-  font-size: 1.5rem;
-  color: whitesmoke;
+.profileDashboard svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
-.profileDashboard p:hover {
+.profileDashboard svg:hover {
   cursor: pointer;
 }
 .dashboardSettings {

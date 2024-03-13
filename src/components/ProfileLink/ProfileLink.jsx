@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import * as icons from "react-icons/cg";
 import "./profileLink.css";
 
 const ProfileLink = () => {
@@ -10,7 +11,7 @@ const ProfileLink = () => {
   return (
     <>
       <div className="profileLink" onClick={onClick}>
-        <p className="profileText">go to profile</p>
+        <icons.CgProfile />
       </div>
     </>
   );

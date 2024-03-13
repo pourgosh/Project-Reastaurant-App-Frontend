@@ -41,7 +41,7 @@ const NavBar = () => {
           </div>
           <div className="navbarLinks">
             <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
+            <Link to="/make-reservation">Reservation</Link>
             <section
               className="loginSection"
               onClick={() => {
@@ -80,7 +80,7 @@ const NavBar = () => {
           </div>
           <div className="navbarLinks">
             <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
+            <Link to="/make-reservation">Reservation</Link>
             <section
               className="logoutSection"
               style={{

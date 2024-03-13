@@ -2,10 +2,11 @@ import axios from "axios";
 import { useCookies } from "react-cookie";
 import { API_URL } from "../../../ApiUrl";
 import { useEffect, useState } from "react";
+import * as icons from "react-icons/io5";
 import UserReservations from "../../components/ReservationsList/UserReservationsList.jsx/UserReservations";
 import CreateReservation from "../../components/ReservationsList/CreateReservation/CreateReservation";
-import "./userProfile.css";
 import UpdateUserInfo from "../../components/UpdateUserInfo/UpdateUserInfo";
+import "./userProfile.css";
 
 const UserProfilePage = () => {
   // eslint-disable-next-line no-unused-vars
@@ -97,8 +98,8 @@ const UserProfilePage = () => {
               </div>
             </div>
             <div className="dashboardContainer">
-              <div className="profileDashboard">
-                <p onClick={displayDashboard}>dashboard</p>
+              <div className="profileDashboard" onClick={displayDashboard}>
+                <icons.IoSettingsOutline />
               </div>
               {dashboard && (
                 <div className="dashboardSettings">

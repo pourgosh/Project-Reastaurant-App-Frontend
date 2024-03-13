@@ -1,0 +1,29 @@
+.reservationWrapper {
+  padding: 8%;
+}
+.reservationContainer {
+  display: flex;
+  justify-content: center;
+  min-height: 40dvh;
+  background-color: #121212;
+}
+.formReservations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  padding: 5px;
+  min-width: 25%;
+}
+.formReservations label {
+  font-size: 3rem;
+  color: whitesmoke;
+}
+.formReservations input {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
@@ -15,6 +15,8 @@ const NavBar = () => {
 
   const storageToken = localStorage.getItem("userID");
 
+  const navigate = useNavigate();
+
   const logout = () => {
     setCookies("access_token", "");
     window.localStorage.removeItem("userID");
@@ -27,7 +29,13 @@ const NavBar = () => {
       {!storageToken ? (
         <div className="navbarWrapper">
           <div className="navbarImgContainer">
-            <img src={logo} />
+            <img
+              src={logo}
+              onClick={() => {
+                navigate("/");
+                console.log("yoyo");
+              }}
+            />
           </div>
           <div className="navbarLinks">
             <Link to="/">Home</Link>
@@ -60,7 +68,13 @@ const NavBar = () => {
       ) : (
         <div className="loginNavbarWrapper">
           <div className="navbarImgContainer">
-            <img src={logo} />
+            <img
+              src={logo}
+              onClick={() => {
+                navigate("/");
+                console.log("yoyo");
+              }}
+            />
           </div>
           <div className="navbarLinks">
             <Link to="/">Home</Link>

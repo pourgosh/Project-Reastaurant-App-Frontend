@@ -6,10 +6,15 @@
   flex-wrap: wrap;
   padding-right: 6.2%;
 }
+.userInfoContainer {
+  flex: 1;
+  padding-top: 4%;
+  padding-right: 1%;
+}
 .userInfo {
-  flex: 3;
   padding: 10px;
   display: flex;
+  background-color: #121212;
 }
 .userAvatar {
   height: 60dvh;
@@ -30,13 +35,14 @@
 .userInfoTextContainer {
   width: max-content;
   display: flex;
-  gap: 5px;
+  gap: 1dvh;
   flex-direction: column;
-  border-left: 2px solid black;
-  padding-left: 2%;
+  border-left: 2px solid whitesmoke;
+  padding-left: 5%;
 }
 .userInfoTextContainer p {
   font-size: 1.5rem;
+  color: whitesmoke;
 }
 .dashboardContainer {
   display: flex;
@@ -94,6 +100,8 @@
   padding: 10px;
   flex-direction: column;
   gap: 10px;
+  background-color: #1212126e;
+  border-radius: 20px;
 }
 .reservationItemWrapper {
   border-top: 2px solid white;
@@ -130,6 +138,8 @@
   flex-direction: column;
   gap: 5px;
   align-items: center;
+  background-color: #1212126e;
+  border-radius: 10px;
 }
 .editUserForm {
   display: flex;
@@ -137,4 +147,14 @@
   flex-wrap: wrap;
   padding: 5px;
   gap: 5px;
+  background-color: #1212126e;
+  border-radius: 10px;
+}
+.userDescription {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.userInfoTextContainer .infoTitle {
+  font-size: 1.8rem;
 }

@@ -69,28 +69,29 @@ const UserProfilePage = () => {
       ) : (
         <div>
           <div className="dashboardWrapper">
-            <div className="userInfo">
-              {userInfo.avatar && (
-                <div className="userAvatar">
-                  <img src={userInfo.avatar} alt="profile image" />
-                </div>
-              )}
-              <div className="userInfoTextWrapper">
-                <div className="userInfoTextContainer">
-                  <p>
-                    {userInfo.firstName} {userInfo.lastName}
-                  </p>
-                  <p>age: {userInfo.age ? userInfo.age : ""}</p>
-                  <p>E-mail Address: {userInfo.email}</p>
-                  <p>
-                    Phone-number:{" "}
-                    {userInfo.phoneNumber ? userInfo.phoneNumber : ""}
-                  </p>
-                  <div className="userDescription">
+            <div className="userInfoContainer">
+              <div className="userInfo">
+                {userInfo.avatar && (
+                  <div className="userAvatar">
+                    <img src={userInfo.avatar} alt="profile image" />
+                  </div>
+                )}
+                <div className="userInfoTextWrapper">
+                  <div className="userInfoTextContainer">
+                    <p className="infoTitle">Name</p>
                     <p>
-                      Description:{" "}
-                      {userInfo.description ? userInfo.description : ""}
+                      {userInfo.firstName} {userInfo.lastName}
                     </p>
+                    <p className="infoTitle">age</p>
+                    <p>{userInfo.age ? userInfo.age : ""}</p>
+                    <p className="infoTitle">E-mail Address</p>
+                    <p>{userInfo.email}</p>
+                    <p className="infoTitle">Phone-number</p>
+                    <p>{userInfo.phoneNumber ? userInfo.phoneNumber : ""}</p>
+                    <div className="userDescription">
+                      <p className="infoTitle">Description</p>
+                      <p>{userInfo.description ? userInfo.description : ""}</p>
+                    </div>
                   </div>
                 </div>
               </div>

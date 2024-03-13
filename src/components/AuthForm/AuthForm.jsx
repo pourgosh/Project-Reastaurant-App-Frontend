@@ -59,8 +59,12 @@ const AuthForm = ({ formType, setShowForm }) => {
       window.localStorage.setItem("userID", response.data.token);
       window.localStorage.setItem("profileID", response.data.userId);
       setShowForm(false);
-      navigate("/");
-      location.reload();
+      if (location.pathname === "/user/profile") {
+        location.reload();
+      } else {
+        navigate("/");
+        location.reload();
+      }
     } catch (err) {
       console.log(err);
     }

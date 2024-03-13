@@ -22,6 +22,7 @@ const NavBar = () => {
     window.localStorage.removeItem("userID");
     window.localStorage.removeItem("staffID");
     window.localStorage.removeItem("profileID");
+    navigate("/");
     location.reload();
   };
 

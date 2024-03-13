@@ -1,7 +1,8 @@
-import FoodList from "../../components/FoodList/FoodList";
+import PublicFoodList from "../../components/PublicFoodList/PublicFoodList";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../../ApiUrl";
+import "./burgersSteak.css";
 
 const BurgersSteakPage = () => {
   const [foodList, setFoodList] = useState(null);
@@ -27,14 +28,10 @@ const BurgersSteakPage = () => {
   }, []);
   return (
     <div>
-      BurgersSteakPage
-      <FoodList
-        foodList={foodList && foodList}
-        WrapperWrapperClassName="foodWrapperWrapper"
-        wrapperClassName="foodItemWrapper"
-        imageContainer="foodImgContainer"
-        infoTextContainer="foodInfoTxtContainer"
-      />
+      <div className="grillPageTitle">
+        <p>Burgers & Steaks</p>
+      </div>
+      <PublicFoodList foodList={foodList && foodList} />
     </div>
   );
 };

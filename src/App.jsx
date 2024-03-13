@@ -34,16 +34,14 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/admin/control" element={<AdminPage />} />
+        {staffID && <Route path="/admin/control" element={<AdminPage />} />}
         <Route path="/staff/registration" element={<StaffPage />} />
         {staffID && (
           <Route path="/staff/reservations" element={<StaffHomePage />} />
         )}
-
         {userCookie.access_token && (
           <Route path="/user/profile" element={<UserProfilePage />} />
         )}
-
         <Route path="/burgers&steaks" element={<BurgersSteakPage />} />
         <Route path="/vegetarian" element={<VegetarianPage />} />
         <Route path="/fingerfood" element={<FingerFoodPage />} />

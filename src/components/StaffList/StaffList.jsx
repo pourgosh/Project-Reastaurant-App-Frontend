@@ -31,10 +31,10 @@ const StaffList = ({ staffList, deleteStaffOnClick }) => {
             return (
               <div key={elem._id} className="staffInfoWrapper">
                 <div className="staffInfoContainer">
-                  <p>first name: {elem.firstName}</p>
-                  <p>last name: {elem.lastName}</p>
+                  <p>First-Name: {elem.firstName}</p>
+                  <p>Last-Name: {elem.lastName}</p>
                   <p>E-mail: {elem.email}</p>
-                  {elem.phoneNumber && <p>phone number: {elem.phoneNumber}</p>}
+                  {elem.phoneNumber && <p>Phone-Number: {elem.phoneNumber}</p>}
                   {elem.age && <p>Age: {elem.age}</p>}
                   {elem.age && <p>Position: {elem.position}</p>}
                 </div>
@@ -45,7 +45,7 @@ const StaffList = ({ staffList, deleteStaffOnClick }) => {
                         deleteStaffOnClick(elem);
                       }}
                     >
-                      remove staff member
+                      Remove Staff Member
                     </p>
                   </div>
                   <div className="updateStaffBtn">

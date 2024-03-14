@@ -35,6 +35,12 @@
 .createFoodContainer p:hover {
   cursor: pointer;
 }
+.creatFoodFormContainer {
+  display: flex;
+  padding: 5px;
+  gap: 2px;
+  justify-content: center;
+}
 .listNameContainer {
   display: flex;
   justify-content: center;

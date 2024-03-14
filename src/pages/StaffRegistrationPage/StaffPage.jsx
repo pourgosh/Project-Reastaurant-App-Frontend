@@ -4,7 +4,7 @@ import { useState } from "react";
 import "./staffPage.css";
 
 const StaffPage = () => {
-  const [displayForm, setDisplayForm] = useState(null);
+  const [displayForm, setDisplayForm] = useState("signUp");
 
   return (
     <div className="registrationWrapper">

@@ -30,7 +30,11 @@ const FoodList = ({
         </div>
       )}
       {showCreateForm && (
-        <FoodListForm requestType="post" foodList={foodList} />
+        <FoodListForm
+          requestType="post"
+          foodList={foodList}
+          className="creatFoodFormContainer"
+        />
       )}
       {parameter === "/admin/control" && (
         <div className="listNameContainer">

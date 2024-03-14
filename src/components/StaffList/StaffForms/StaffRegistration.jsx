@@ -3,7 +3,7 @@ import FormInput from "../../AuthForm/FormInput/FormInput";
 import { useState, useContext } from "react";
 import { staffContext } from "../../../pages/AdminPage/AdminPage";
 import { API_URL } from "../../../../ApiUrl";
-
+import "../staffRegistration.css";
 const StaffRegistration = ({ setShowRegistration }) => {
   const getStaffFromDb = useContext(staffContext);
 
@@ -43,14 +43,20 @@ const StaffRegistration = ({ setShowRegistration }) => {
   return (
     <div>
       {window.location.pathname === "/admin/control" && (
-        <div>
-          <p onClick={onClick}>close</p>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            fontSize: "2rem",
+          }}
+        >
+          <p onClick={onClick}>Close</p>
         </div>
       )}
 
-      <form onSubmit={signupOnSubmit}>
+      <form onSubmit={signupOnSubmit} className="staffRegistration">
         <FormInput
-          inputText="first name"
+          inputText="First-Name"
           inputType="text"
           inputValue={newStaff.firstName}
           onChange={(e) => {
@@ -61,7 +67,7 @@ const StaffRegistration = ({ setShowRegistration }) => {
           }}
         />
         <FormInput
-          inputText="last name"
+          inputText="Last-Name"
           inputType="text"
           inputValue={newStaff.lastName}
           onChange={(e) => {
@@ -83,7 +89,7 @@ const StaffRegistration = ({ setShowRegistration }) => {
           }}
         />
         <FormInput
-          inputText="password"
+          inputText="Password"
           inputType="password"
           inputValue={newStaff.password}
           onChange={(e) => {
@@ -94,7 +100,7 @@ const StaffRegistration = ({ setShowRegistration }) => {
           }}
         />
         <FormInput
-          inputText="phone number"
+          inputText="Phone-Number"
           inputType="text"
           inputValue={newStaff.phoneNumber}
           onChange={(e) => {
@@ -105,7 +111,7 @@ const StaffRegistration = ({ setShowRegistration }) => {
           }}
         />
         <FormInput
-          inputText="age"
+          inputText="Age"
           inputType="number"
           inputValue={newStaff.age}
           onChange={(e) => {
@@ -151,7 +157,7 @@ const StaffRegistration = ({ setShowRegistration }) => {
             });
           }}
         />
-        <button>submit new staff</button>
+        <button>Submit New Staff</button>
       </form>
     </div>
   );

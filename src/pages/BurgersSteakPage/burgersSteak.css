@@ -29,6 +29,9 @@
   border: 5px solid whitesmoke;
   border-radius: 5px;
 }
+.foodsContainer:hover {
+  cursor: pointer;
+}
 .foodsContainer p {
   padding: 20px;
   font-size: 3.3rem;

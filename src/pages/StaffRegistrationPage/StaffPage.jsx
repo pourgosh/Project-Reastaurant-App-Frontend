@@ -1,12 +1,13 @@
 import StaffRegistration from "../../components/StaffList/StaffForms/StaffRegistration";
 import LoginStaffForm from "../../components/StaffList/StaffForms/LoginStaffForm";
 import { useState } from "react";
+import "./staffPage.css";
 
 const StaffPage = () => {
   const [displayForm, setDisplayForm] = useState(null);
 
   return (
-    <div>
+    <div className="registrationWrapper">
       <div>
         <div>
           <p

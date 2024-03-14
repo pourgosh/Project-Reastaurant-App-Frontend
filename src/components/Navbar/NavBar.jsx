@@ -1,10 +1,11 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { useState } from "react";
 import { useCookies } from "react-cookie";
 import AuthForm from "../AuthForm/AuthForm";
 import logo from "../../assets/Images/logo.png";
-import signupBg from "../../assets/Images/signupBg.png";
+//import signupBg from "../../assets/Images/signupBg.png";
+import NavItem from "./components/NavItem";
 
 const NavBar = () => {
   const [showForm, setShowForm] = useState(false);
@@ -28,7 +29,7 @@ const NavBar = () => {
 
   return (
     <>
-      {!storageToken ? (
+      {/* {!storageToken ? (
         <div className="navbarWrapper">
           <div className="navbarImgContainer">
             <img
@@ -95,6 +96,47 @@ const NavBar = () => {
           </div>
         </div>
       )}
+      {showForm && <AuthForm formType={formType} setShowForm={setShowForm} />} */}
+      {/**/}
+      <div className="navWrapper">
+        <div className="navInnerWrapper">
+          <div className="imageWrapper">
+            <img
+              src={logo}
+              onClick={() => {
+                navigate("/");
+              }}
+            />
+          </div>
+          <div className="navGroupWrapper">
+            <NavItem to={"/"} />
+            <NavItem to={"make-reservation"} label="Reservation" />
+
+            {!storageToken ? (
+              <>
+                <NavItem
+                  label="Sign Up"
+                  onClick={() => {
+                    setFormType("signup");
+                    setShowForm(true);
+                  }}
+                />
+                <NavItem
+                  label="Login"
+                  onClick={() => {
+                    setFormType("login");
+                    setShowForm(true);
+                  }}
+                />
+              </>
+            ) : (
+              <>
+                <NavItem label="Logout" onClick={logout} />
+              </>
+            )}
+          </div>
+        </div>
+      </div>
       {showForm && <AuthForm formType={formType} setShowForm={setShowForm} />}
     </>
   );

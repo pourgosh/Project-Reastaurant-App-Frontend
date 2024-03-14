@@ -1,0 +1,10 @@
+.vegTitleContainer {
+  display: flex;
+  justify-content: center;
+}
+.vegTitleContainer p {
+  font-size: 4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}

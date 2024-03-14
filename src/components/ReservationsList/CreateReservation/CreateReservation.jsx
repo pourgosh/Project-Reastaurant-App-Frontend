@@ -85,7 +85,7 @@ const CreateReservation = ({ getUsersInfo, setMakeReservation }) => {
             });
           }}
         />
-        <button type="submit">submit Reservation</button>
+        <button type="submit">Submit Reservation</button>
       </form>
     </div>
   );

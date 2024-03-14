@@ -50,7 +50,7 @@ const UserReservations = () => {
             return (
               <div key={elem._id} className="reservationItemWrapper">
                 <div className="reservationInfo">
-                  <p>first name: {elem.reserver.firstName}</p>
+                  <p>First-Name: {elem.reserver.firstName}</p>
                 </div>
                 <div className="deleteBtn">
                   <p

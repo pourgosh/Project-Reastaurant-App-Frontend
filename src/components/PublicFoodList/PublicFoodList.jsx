@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const PublicFoodList = ({ foodList }) => {
+  const navigate = useNavigate();
+
   return (
     <div className="foodListMain">
       {foodList &&
@@ -7,20 +11,15 @@ const PublicFoodList = ({ foodList }) => {
             <div key={elem._id} className="foodsContainer">
               <p> {elem.title}</p>
               {elem.image && (
-                <div className="imgContainer">
+                <div
+                  className="imgContainer"
+                  onClick={() => {
+                    navigate(`/foods/${elem._id}`);
+                  }}
+                >
                   <img src={elem.image} alt="item image" />
                 </div>
               )}
-              <div className="foodDetailsContainer">
-                {elem.description && <p>description: {elem.description}</p>}
-                {elem.origin && <p>origin: {elem.origin}</p>}
-                {elem.ingredients && <p>ingredients: {elem.ingredients}</p>}
-                {elem.chefsRecommendations && (
-                  <p>chefsRecommendations: {elem.chefsRecommendations}</p>
-                )}
-                {elem.category && <p>category: {elem.category}</p>}
-                <p>Price:{elem.price}$</p>
-              </div>
             </div>
           );
         })}

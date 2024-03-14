@@ -83,11 +83,11 @@ const UserProfilePage = () => {
                     <p>
                       {userInfo.firstName} {userInfo.lastName}
                     </p>
-                    <p className="infoTitle">age</p>
+                    <p className="infoTitle">Age</p>
                     <p>{userInfo.age ? userInfo.age : ""}</p>
                     <p className="infoTitle">E-mail Address</p>
                     <p>{userInfo.email}</p>
-                    <p className="infoTitle">Phone-number</p>
+                    <p className="infoTitle">Phone-Number</p>
                     <p>{userInfo.phoneNumber ? userInfo.phoneNumber : ""}</p>
                     <div className="userDescription">
                       <p className="infoTitle">Description</p>
@@ -118,7 +118,7 @@ const UserProfilePage = () => {
                     </div>
                   )}
                   {makeReservation && (
-                    <div>
+                    <div style={{ width: "100%" }}>
                       <CreateReservation
                         getUsersInfo={getUserInfo}
                         setMakeReservation={setMakeReservation}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../../ApiUrl";
 import PublicFoodList from "../../components/PublicFoodList/PublicFoodList";
+import "./vegetarianPage.css";
 
 const VegetarianPage = () => {
   const [foodList, setFoodList] = useState(null);
@@ -27,7 +28,9 @@ const VegetarianPage = () => {
 
   return (
     <div>
-      Vegetarian Menu
+      <div className="vegTitleContainer">
+        <p>Vegetarian Menu</p>
+      </div>
       <PublicFoodList foodList={foodList} />
     </div>
   );

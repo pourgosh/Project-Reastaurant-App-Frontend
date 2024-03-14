@@ -1,10 +1,21 @@
+import "./reservations.css";
+
 const ReservationsList = ({ list, deleteFunc }) => {
   return (
     <>
       {list &&
         list.map((elem) => {
           return (
-            <div key={elem._id}>
+            <div
+              key={elem._id}
+              style={{
+                padding: "10px",
+                border: "2px solid black",
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+              }}
+            >
               {elem.time && <p>time: {elem.time}</p>}
               {elem.totalClients && <p>totalClients: {elem.totalClients}</p>}
               {elem.date && <p>date: {elem.date}</p>}
@@ -19,8 +30,9 @@ const ReservationsList = ({ list, deleteFunc }) => {
                   )}
                 </div>
               )}
-              <div>
+              <div style={{ display: "flex" }}>
                 <p
+                  className="DeleteUserBtn"
                   onClick={() => {
                     deleteFunc(elem);
                   }}

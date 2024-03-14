@@ -67,6 +67,7 @@ const ReservationPage = () => {
       <div className="reservationContainer">
         <form onSubmit={submitReservation} className="formReservations">
           <FormInput
+            inputClassName="reservationInput"
             inputType="time"
             inputText="Time"
             inputValue={newReserVation.time}
@@ -79,6 +80,7 @@ const ReservationPage = () => {
             }}
           />
           <FormInput
+            inputClassName="reservationInput"
             inputType="date"
             inputText="Date"
             inputValue={newReserVation.date}
@@ -90,6 +92,7 @@ const ReservationPage = () => {
             }}
           />
           <FormInput
+            inputClassName="reservationInput"
             inputType="number"
             inputText="total clients"
             required="required"

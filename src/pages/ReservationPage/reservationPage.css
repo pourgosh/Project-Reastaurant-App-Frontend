@@ -44,3 +44,14 @@
   align-items: center;
   min-height: 2rem;
 }
+.reservationInput {
+  height: 50%;
+  font-size: 30px;
+  border: "none";
+  background-color: #ffffff11;
+  color: whitesmoke;
+  border-bottom-width: 1px;
+  border-bottom-color: whitesmoke;
+  border-bottom-style: solid;
+  width: 100%;
+}

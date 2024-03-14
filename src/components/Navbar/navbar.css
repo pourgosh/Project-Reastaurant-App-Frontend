@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Esteban&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Esteban&display=swap");
 
 .navbarWrapper {
   background: #121212;
@@ -103,4 +103,30 @@
 .logoutSection p:hover {
   border-bottom: 4px solid rgb(8, 7, 7);
   cursor: pointer;
+} */
+.navWrapper {
+  width: 100%;
+  position: fixed;
+  z-index: 99999999999999999999999999999999999999999999999;
+  backdrop-filter: blur(10px);
+  background-color: rgba(29, 30, 30, 0.808);
+}
+
+.navInnerWrapper {
+  height: 80px;
+  display: flex;
+  padding-left: 86px;
+  padding-right: 86px;
+}
+
+.imageWrapper {
+  display: flex;
+  flex: 1;
+}
+.imageWrapper img:hover {
+  cursor: pointer;
+}
+.navGroupWrapper {
+  display: flex;
+  flex: 1;
 }

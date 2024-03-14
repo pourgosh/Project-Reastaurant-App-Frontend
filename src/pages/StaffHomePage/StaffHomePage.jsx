@@ -54,7 +54,14 @@ const StaffHomePage = () => {
           log-out
         </button>
       </div>
-      <div>
+      <div
+        style={{
+          padding: "5px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+        }}
+      >
         <ReservationsList
           list={reservationsList}
           deleteFunc={deleteReservation}

@@ -8,15 +8,16 @@ const PublicFoodList = ({ foodList }) => {
       {foodList &&
         foodList.map((elem) => {
           return (
-            <div key={elem._id} className="foodsContainer">
+            <div
+              key={elem._id}
+              className="foodsContainer"
+              onClick={() => {
+                navigate(`/foods/${elem._id}`);
+              }}
+            >
               <p> {elem.title}</p>
               {elem.image && (
-                <div
-                  className="imgContainer"
-                  onClick={() => {
-                    navigate(`/foods/${elem._id}`);
-                  }}
-                >
+                <div className="imgContainer">
                   <img src={elem.image} alt="item image" />
                 </div>
               )}

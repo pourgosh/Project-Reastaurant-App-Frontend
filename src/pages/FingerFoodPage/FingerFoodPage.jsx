@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { API_URL } from "../../../ApiUrl";
 import PublicFoodList from "../../components/PublicFoodList/PublicFoodList";
+import "./fingerFoodPage.css";
 
 const FingerFoodPage = () => {
   const [foodList, setFoodList] = useState(null);
@@ -27,7 +28,9 @@ const FingerFoodPage = () => {
 
   return (
     <div>
-      Our Finger Food Menu
+      <div className="fingerFoodTitleContainer">
+        <p>Our Finger Food Menu</p>
+      </div>
       <PublicFoodList foodList={foodList} />
     </div>
   );

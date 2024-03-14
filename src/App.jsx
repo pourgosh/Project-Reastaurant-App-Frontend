@@ -11,6 +11,7 @@ import BurgersSteakPage from "./pages/BurgersSteakPage/BurgersSteakPage";
 import VegetarianPage from "./pages/VegetarianPage/VegetarianPage";
 import FingerFoodPage from "./pages/FingerFoodPage/FingerFoodPage";
 import CoctailsDesertPage from "./pages/CoctailsDesertPage/CoctailsDesertPage";
+import SingleFoodItem from "./components/SingleFoodItem/SingleFoodItem";
 
 function App() {
   // eslint-disable-next-line no-unused-vars
@@ -33,6 +34,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="foods/:id" element={<SingleFoodItem />} />
         <Route path="/make-reservation" element={<ReservationPage />} />
         {staffID && <Route path="/admin/control" element={<AdminPage />} />}
         <Route path="/staff/registration" element={<StaffPage />} />

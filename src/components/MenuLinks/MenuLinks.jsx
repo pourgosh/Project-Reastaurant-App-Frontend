@@ -23,7 +23,12 @@ const MenuLinks = () => {
             Steak & Burgers
           </p>
           <div
-            style={{ backgroundImage: `url(${bbqImg})` }}
+            style={{
+              backgroundImage: `url(${bbqImg})`,
+              border: " 10px solid #2c2828",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
             onClick={() => {
               navigate("/burgers&steaks");
             }}
@@ -38,7 +43,12 @@ const MenuLinks = () => {
             Vegetarian
           </p>
           <div
-            style={{ backgroundImage: `url(${vegImg})` }}
+            style={{
+              backgroundImage: `url(${vegImg})`,
+              border: " 10px solid #2c2828",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
             onClick={() => {
               navigate("/vegetarian");
             }}
@@ -53,7 +63,12 @@ const MenuLinks = () => {
             Finger Food
           </p>
           <div
-            style={{ backgroundImage: `url(${fingerFoodImg})` }}
+            style={{
+              backgroundImage: `url(${fingerFoodImg})`,
+              border: " 10px solid #2c2828",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+            }}
             onClick={() => {
               navigate("/fingerfood");
             }}
@@ -65,7 +80,7 @@ const MenuLinks = () => {
               navigate("/coctails&drinks");
             }}
           >
-            and more...
+            And more...
           </p>
           <div
             onClick={() => {
@@ -73,6 +88,9 @@ const MenuLinks = () => {
             }}
             style={{
               backgroundImage: `url(${drinkDesertImg})`,
+              border: " 10px solid #2c2828",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
             }}
           ></div>
         </div>

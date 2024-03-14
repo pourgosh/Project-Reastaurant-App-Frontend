@@ -1,5 +1,18 @@
-.reservationWrapper {
-  padding: 8%;
+.headerContainer {
+  padding: 3% 0% 3% 9%;
+  min-height: 15dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.headerBottomText {
+  padding-left: 12%;
+}
+.headerContainer p {
+  font-size: 5rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 .reservationContainer {
   display: flex;
@@ -19,11 +32,15 @@
 .formReservations label {
   font-size: 3rem;
   color: whitesmoke;
+  font-family: "Esteban", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 .formReservations input {
-  width: 50%;
+  width: 95%;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 2rem;
 }

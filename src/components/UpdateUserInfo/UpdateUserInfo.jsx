@@ -37,7 +37,7 @@ const UpdateUserInfo = ({ userInfo, getUserInfo }) => {
   };
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
       <form onSubmit={updateUser} className="editUserForm">
         <FormInput
           inputType="text"

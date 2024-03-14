@@ -56,6 +56,14 @@ const ReservationPage = () => {
 
   return (
     <div className="reservationWrapper">
+      <div className="headerContainer">
+        <div className="headerTopText">
+          <p>Come with your </p>
+        </div>
+        <div className="headerBottomText">
+          <p>Family & Friends </p>
+        </div>
+      </div>
       <div className="reservationContainer">
         <form onSubmit={submitReservation} className="formReservations">
           <FormInput

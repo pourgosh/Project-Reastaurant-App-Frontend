@@ -16,7 +16,10 @@
   justify-content: center;
 }
 .grillItemsWrapper p {
-  font-size: 4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 3.3rem;
   color: white;
   padding-bottom: 2rem;
 }
@@ -38,9 +41,12 @@
   justify-content: center;
 }
 .itemImgWrapper p {
-  font-size: 4rem;
+  font-size: 3.3rem;
   color: white;
   padding-bottom: 2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
 
 .grillItemsWrapper div:hover {

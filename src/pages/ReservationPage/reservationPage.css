@@ -17,7 +17,7 @@
 .reservationContainer {
   display: flex;
   justify-content: center;
-  min-height: 40dvh;
+  min-height: 45dvh;
   background-color: #121212;
 }
 .formReservations {
@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: center;
   gap: 5%;
-  padding: 5px;
+  padding: 7rem;
   min-width: 25%;
 }
 .formReservations label {
@@ -35,14 +35,6 @@
   font-family: "Esteban", serif;
   font-weight: 400;
   font-style: normal;
-}
-.formReservations input {
-  width: 95%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 2rem;
 }
 .reservationInput {
   height: 50%;
@@ -53,5 +45,16 @@
   border-bottom-width: 1px;
   border-bottom-color: whitesmoke;
   border-bottom-style: solid;
-  width: 100%;
+  width: 95%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formReservations button {
+  background-color: #121212;
+  width: 10dvw;
+  height: 22dvh;
+  color: whitesmoke;
+  font-size: 1.5rem;
 }

@@ -32,7 +32,11 @@ const DrinkList = ({
         </div>
       )}
       {showCreateForm && (
-        <DrinkListForm requestType="post" drinkList={drinkList} />
+        <DrinkListForm
+          requestType="post"
+          drinkList={drinkList}
+          className="createDrinkForm"
+        />
       )}
       <div className={wrapperClassName && wrapperClassName}>
         {drinkList &&

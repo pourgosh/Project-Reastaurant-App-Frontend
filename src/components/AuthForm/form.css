@@ -64,7 +64,18 @@
   font-size: 1.8rem;
   color: whitesmoke;
 }
-.formInput {
+.formForm .formInput {
   width: 20%;
-  min-height: 2rem;
+  min-height: 2.5dvh;
+  background-color: #121212;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.formForm button {
+  background-color: #121212;
+  width: 10dvw;
+  height: 3dvh;
+  color: whitesmoke;
+  font-size: 20px;
 }

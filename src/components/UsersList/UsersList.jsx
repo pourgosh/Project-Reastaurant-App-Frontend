@@ -27,6 +27,7 @@ const UsersList = ({ usersList, deleteUsersonClick }) => {
                   })}
                 <div>
                   <div
+                    className="adminDeleteUserBtn"
                     onClick={() => {
                       deleteUsersonClick(elem);
                     }}

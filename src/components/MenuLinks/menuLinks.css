@@ -7,7 +7,6 @@
   flex-direction: column;
 }
 .grillItemsWrapper div {
-  /* height: 40dvh; */
   height: 14.8dvh;
   width: 59%;
   display: flex;
@@ -21,7 +20,6 @@
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
-  /* font-size: 3.3rem; */
   font-size: 2rem;
   color: white;
   padding-bottom: 2rem;
@@ -32,14 +30,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* padding-right: 3rem; */
 }
 .itemImgWrapper div {
   background-size: contain;
   border: 10px solid #2c2828;
-  /* height: 40dvh; */
   height: 14.8dvh;
-  /* width: 60%; */
   width: 78%;
   display: flex;
   align-items: center;
@@ -47,7 +42,6 @@
   justify-content: center;
 }
 .itemImgWrapper p {
-  /* font-size: 3.3rem; */
   font-size: 2rem;
   color: white;
   padding-bottom: 2rem;

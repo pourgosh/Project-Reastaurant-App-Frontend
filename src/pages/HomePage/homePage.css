@@ -69,7 +69,6 @@
 }
 .menuTitleContainer p {
   text-align: left;
-  /* font-size: 4rem; */
   font-size: 2rem;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -133,6 +132,9 @@
 @media (min-width: 1000px) {
   .mainWrapper {
     flex-direction: row;
+  }
+  .menuTitleContainer p {
+    font-size: 3.3rem;
   }
   .imgWrapper {
     position: relative;

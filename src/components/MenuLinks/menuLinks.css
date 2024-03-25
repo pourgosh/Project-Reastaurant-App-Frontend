@@ -7,19 +7,20 @@
   flex-direction: column;
 }
 .grillItemsWrapper div {
-  background-size: contain;
-  height: 40dvh;
-  width: 60%;
+  height: 14.8dvh;
+  width: 59%;
   display: flex;
   align-items: center;
-  background-repeat: no-repeat;
   justify-content: center;
+  border: 10px solid #2c2828;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .grillItemsWrapper p {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 3.3rem;
+  font-size: 2rem;
   color: white;
   padding-bottom: 2rem;
 }
@@ -29,19 +30,19 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding-right: 3rem;
 }
 .itemImgWrapper div {
   background-size: contain;
-  height: 40dvh;
-  width: 60%;
+  border: 10px solid #2c2828;
+  height: 14.8dvh;
+  width: 78%;
   display: flex;
   align-items: center;
   background-repeat: no-repeat;
   justify-content: center;
 }
 .itemImgWrapper p {
-  font-size: 3.3rem;
+  font-size: 2rem;
   color: white;
   padding-bottom: 2rem;
   font-family: "Poppins", sans-serif;
@@ -60,4 +61,72 @@
 }
 .grillItemsWrapper p:hover {
   cursor: pointer;
+}
+
+@media (min-width: 1000px) {
+  .grillItemsWrapper div {
+    height: 24dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid #2c2828;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .grillItemsWrapper p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 3.3rem;
+    color: white;
+    padding-bottom: 2rem;
+  }
+  .grillItemsWrapper p {
+    font-size: 1.8rem;
+    white-space: noWrap;
+  }
+
+  .itemImgWrapper div {
+    height: 24dvh;
+    background-size: 100% 100%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .grillItemsWrapper div {
+    height: 40dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 10px solid #2c2828;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .grillItemsWrapper p {
+    font-size: 3.3rem;
+    white-space: noWrap;
+  }
+
+  .itemImgWrapper div {
+    height: 40dvh;
+    width: 94%;
+    background-size: cover;
+  }
+  .itemImgWrapper p {
+    font-size: 3.3rem;
+  }
+}
+@media (min-width: 2000px) {
+  .grillItemsWrapper div {
+    height: 38dvh;
+    width: 50%;
+    background-size: cover;
+  }
+  .itemImgWrapper div {
+    height: 38dvh;
+    width: 50%;
+    background-size: cover;
+  }
 }

@@ -115,8 +115,6 @@
 .navInnerWrapper {
   height: 80px;
   display: flex;
-  padding-left: 86px;
-  padding-right: 86px;
 }
 
 .imageWrapper {
@@ -127,6 +125,58 @@
   cursor: pointer;
 }
 .navGroupWrapper {
+  display: none;
+}
+.burgerMenuContainer {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-width: 230px;
   display: flex;
-  flex: 1;
+  flex-direction: column;
+  gap: 15px;
+}
+.burgerMenuBtnContainer {
+  position: absolute;
+  top: 25px;
+  right: 90px;
+}
+.burgerMenuBtn {
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.burgerMenuItems {
+  position: absolute;
+  top: 80px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  background-color: rgba(29, 30, 30, 0.977);
+  width: 200px;
+  box-shadow: 5px 5px 22px black;
+}
+@media (min-width: 1000px) {
+  .navGroupWrapper {
+    display: flex;
+    flex: 1;
+  }
+  .navGroupWrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  .navInnerWrapper {
+    height: 80px;
+    display: flex;
+    padding-left: 86px;
+    padding-right: 86px;
+  }
+  .burgerMenuContainer {
+    display: none;
+  }
 }

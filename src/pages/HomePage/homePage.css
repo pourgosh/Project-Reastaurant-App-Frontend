@@ -5,6 +5,7 @@
   background-color: rgb(20, 20, 20);
   margin-top: 2px;
   display: flex;
+  flex-direction: column;
 }
 .imgWrapperWrapper {
   display: flex;
@@ -16,8 +17,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  top: 8dvh;
+  width: 50%;
 }
 .imgWrapper img {
   max-width: 100%;
@@ -34,9 +34,11 @@
   display: flex;
   padding-right: 12%;
   justify-content: flex-end;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 .enjoyTextContainer p {
-  font-size: 4rem;
+  font-size: 2rem;
   color: whitesmoke;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
@@ -47,13 +49,14 @@
   padding-right: 10%;
   padding-left: 10%;
   min-width: 9rem;
+  padding-bottom: 20px;
 }
 .textContainer p {
-  line-height: 4dvh;
+  line-height: 1.5dvh;
   font-family: "Esteban", serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 1.8rem;
+  font-size: 1rem;
   color: whitesmoke;
 }
 .menuTitleContainer {
@@ -66,7 +69,8 @@
 }
 .menuTitleContainer p {
   text-align: left;
-  font-size: 4rem;
+  /* font-size: 4rem; */
+  font-size: 2rem;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -74,9 +78,10 @@
 .menuContainer {
   background-color: rgb(20, 20, 20);
   display: flex;
+  flex-direction: column; /*1*/
+  flex-wrap: wrap; /*2*/
   justify-content: center;
   align-items: center;
-  height: 75dvh;
 }
 .aboutUsWrapper {
   display: flex;
@@ -123,4 +128,52 @@
 .aboutUsImgWrapper img {
   object-fit: contain;
   border: 10px solid #2c2828;
+}
+
+@media (min-width: 1000px) {
+  .mainWrapper {
+    flex-direction: row;
+  }
+  .imgWrapper {
+    position: relative;
+    top: 8dvh;
+  }
+  .enjoyTextContainer p {
+    font-size: 3rem;
+  }
+  .textContainer p {
+    line-height: 2.5dvh;
+    font-size: 1.5rem;
+  }
+  .imgWrapper {
+    width: fit-content;
+  }
+  .menuContainer {
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    flex-direction: row; /*1*/
+    flex-wrap: wrap; /*2*/
+    justify-content: center;
+    align-items: center;
+    height: 75dvh;
+  }
+}
+
+@media (min-width: 1600px) {
+  .menuContainer {
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .enjoyTextContainer p {
+    font-size: 4rem;
+  }
+  .textContainer p {
+    line-height: 3dvh;
+    font-size: 1.8rem;
+  }
+  .imgWrapper {
+    width: fit-content;
+  }
 }

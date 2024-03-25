@@ -25,9 +25,6 @@ const MenuLinks = () => {
           <div
             style={{
               backgroundImage: `url(${bbqImg})`,
-              border: " 10px solid #2c2828",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
             }}
             onClick={() => {
               navigate("/burgers&steaks");
@@ -45,9 +42,7 @@ const MenuLinks = () => {
           <div
             style={{
               backgroundImage: `url(${vegImg})`,
-              border: " 10px solid #2c2828",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
+              marginLeft: "30px",
             }}
             onClick={() => {
               navigate("/vegetarian");
@@ -65,9 +60,6 @@ const MenuLinks = () => {
           <div
             style={{
               backgroundImage: `url(${fingerFoodImg})`,
-              border: " 10px solid #2c2828",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
             }}
             onClick={() => {
               navigate("/fingerfood");
@@ -88,9 +80,6 @@ const MenuLinks = () => {
             }}
             style={{
               backgroundImage: `url(${drinkDesertImg})`,
-              border: " 10px solid #2c2828",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
             }}
           ></div>
         </div>

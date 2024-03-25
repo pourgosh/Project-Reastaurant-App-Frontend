@@ -10,7 +10,7 @@ import NavItem from "./components/NavItem";
 const NavBar = () => {
   const [showForm, setShowForm] = useState(false);
   const [formType, setFormType] = useState("");
-
+  const [navBurger, setNavBurger] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const [cookies, setCookies] = useCookies("access_token");
 
@@ -27,77 +27,12 @@ const NavBar = () => {
     location.reload();
   };
 
+  const controlNavBurger = () => {
+    setNavBurger(!navBurger);
+  };
+
   return (
     <>
-      {/* {!storageToken ? (
-        <div className="navbarWrapper">
-          <div className="navbarImgContainer">
-            <img
-              src={logo}
-              onClick={() => {
-                navigate("/");
-                console.log("yoyo");
-              }}
-            />
-          </div>
-          <div className="navbarLinks">
-            <Link to="/">Home</Link>
-            <Link to="/make-reservation">Reservation</Link>
-            <section
-              className="loginSection"
-              onClick={() => {
-                setShowForm(true);
-                setFormType("login");
-              }}
-            >
-              <p>Login</p>
-            </section>
-            <section
-              className="navSection"
-              style={{
-                backgroundImage: `url(${signupBg})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-              }}
-              onClick={() => {
-                setShowForm(true);
-                setFormType("signup");
-              }}
-            >
-              <p>Sign up</p>
-            </section>
-          </div>
-        </div>
-      ) : (
-        <div className="loginNavbarWrapper">
-          <div className="navbarImgContainer">
-            <img
-              src={logo}
-              onClick={() => {
-                navigate("/");
-                console.log("yoyo");
-              }}
-            />
-          </div>
-          <div className="navbarLinks">
-            <Link to="/">Home</Link>
-            <Link to="/make-reservation">Reservation</Link>
-            <section
-              className="logoutSection"
-              style={{
-                backgroundImage: `url(${signupBg})`,
-                backgroundSize: "cover",
-                backgroundRepeat: "no-repeat",
-              }}
-              onClick={logout}
-            >
-              <p>Log Out</p>
-            </section>
-          </div>
-        </div>
-      )}
-      {showForm && <AuthForm formType={formType} setShowForm={setShowForm} />} */}
-      {/**/}
       <div className="navWrapper">
         <div className="navInnerWrapper">
           <div className="imageWrapper">
@@ -133,6 +68,63 @@ const NavBar = () => {
               <>
                 <NavItem label="Logout" onClick={logout} />
               </>
+            )}
+          </div>
+
+          <div className="burgerMenuContainer">
+            <div className="burgerMenuBtnContainer">
+              <div className="burgerMenuBtn" onClick={controlNavBurger}>
+                <span
+                  style={{
+                    width: "40px",
+                    height: "8px",
+                    backgroundColor: "white",
+                  }}
+                ></span>
+                <span
+                  style={{
+                    width: "40px",
+                    height: "8px",
+                    backgroundColor: "white",
+                  }}
+                ></span>
+                <span
+                  style={{
+                    width: "40px",
+                    height: "8px",
+                    backgroundColor: "white",
+                  }}
+                ></span>
+              </div>
+            </div>
+            {navBurger && (
+              <div className="burgerMenuItems">
+                <NavItem to={"/"} />
+                <NavItem to={"make-reservation"} label="Reservation" />
+
+                {!storageToken ? (
+                  <>
+                    <NavItem
+                      label="Sign Up"
+                      onClick={() => {
+                        setFormType("signup");
+                        setShowForm(true);
+                      }}
+                    />
+                    <NavItem
+                      label="Login"
+                      onClick={() => {
+                        setFormType("login");
+                        setShowForm(true);
+                      }}
+                    />
+                  </>
+                ) : (
+                  <>
+                    <NavItem label="Logout" onClick={logout} />
+                  </>
+                )}
+              </div>
             )}
           </div>
         </div>

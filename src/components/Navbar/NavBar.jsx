@@ -99,8 +99,12 @@ const NavBar = () => {
             </div>
             {navBurger && (
               <div className="burgerMenuItems">
-                <NavItem to={"/"} />
-                <NavItem to={"make-reservation"} label="Reservation" />
+                <NavItem to={"/"} onClick={controlNavBurger} />
+                <NavItem
+                  to={"make-reservation"}
+                  label="Reservation"
+                  onClick={controlNavBurger}
+                />
 
                 {!storageToken ? (
                   <>
@@ -109,6 +113,7 @@ const NavBar = () => {
                       onClick={() => {
                         setFormType("signup");
                         setShowForm(true);
+                        controlNavBurger();
                       }}
                     />
                     <NavItem
@@ -116,12 +121,19 @@ const NavBar = () => {
                       onClick={() => {
                         setFormType("login");
                         setShowForm(true);
+                        controlNavBurger();
                       }}
                     />
                   </>
                 ) : (
                   <>
-                    <NavItem label="Logout" onClick={logout} />
+                    <NavItem
+                      label="Logout"
+                      onClick={() => {
+                        controlNavBurger();
+                        logout();
+                      }}
+                    />
                   </>
                 )}
               </div>

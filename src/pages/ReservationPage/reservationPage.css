@@ -3,13 +3,15 @@
   min-height: 15dvh;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   gap: 10px;
 }
 .headerBottomText {
   padding-left: 12%;
 }
 .headerContainer p {
-  font-size: 5rem;
+  font-size: 3rem;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -37,7 +39,7 @@
   font-style: normal;
 }
 .reservationInput {
-  height: 50%;
+  height: 70px;
   font-size: 30px;
   border: "none";
   background-color: #ffffff11;
@@ -53,8 +55,12 @@
 }
 .formReservations button {
   background-color: #121212;
-  width: 10dvw;
-  height: 22dvh;
+  min-height: 5dvh;
   color: whitesmoke;
   font-size: 1.5rem;
+}
+@media (min-width: 1300px) {
+  .headerContainer p {
+    font-size: 5rem;
+  }
 }

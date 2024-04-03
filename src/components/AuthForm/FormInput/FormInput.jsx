@@ -6,8 +6,12 @@ const FormInput = ({
   inputClassName,
   labelClassName,
   placeHolder,
-  newUser,
+  inputValue,
   onChange,
+  required,
+  checked,
+  minValue,
+  maxValue,
 }) => {
   const refFunc = (refrence) => {
     refrence.current.focus();
@@ -16,7 +20,7 @@ const FormInput = ({
   return (
     <>
       <label
-        className={labelClassName}
+        className={labelClassName && labelClassName}
         onClick={() => {
           refFunc(refName);
         }}
@@ -24,13 +28,17 @@ const FormInput = ({
         {inputText}
       </label>
       <input
-        placeholder={placeHolder}
-        ref={refName}
-        className={inputClassName}
-        type={inputType}
-        name={inputName}
-        value={newUser}
-        onChange={onChange}
+        checked={checked && checked}
+        required={required && required}
+        placeholder={placeHolder && placeHolder}
+        ref={refName && refName}
+        className={inputClassName && inputClassName}
+        type={inputType && inputType}
+        name={inputName && inputName}
+        value={inputValue && inputValue}
+        onChange={onChange && onChange}
+        min={minValue && minValue}
+        max={maxValue && maxValue}
       />
     </>
   );

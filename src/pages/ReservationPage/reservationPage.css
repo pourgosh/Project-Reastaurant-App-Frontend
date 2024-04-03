@@ -1,0 +1,66 @@
+.headerContainer {
+  padding: 3% 0% 3% 9%;
+  min-height: 15dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+.headerBottomText {
+  padding-left: 12%;
+}
+.headerContainer p {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.reservationContainer {
+  display: flex;
+  justify-content: center;
+  min-height: 45dvh;
+  background-color: #121212;
+}
+.formReservations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+  padding: 7rem;
+  min-width: 25%;
+}
+.formReservations label {
+  font-size: 3rem;
+  color: whitesmoke;
+  font-family: "Esteban", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.reservationInput {
+  height: 70px;
+  font-size: 30px;
+  border: "none";
+  background-color: #ffffff11;
+  color: whitesmoke;
+  border-bottom-width: 1px;
+  border-bottom-color: whitesmoke;
+  border-bottom-style: solid;
+  width: 95%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.formReservations button {
+  background-color: #121212;
+  min-height: 5dvh;
+  color: whitesmoke;
+  font-size: 1.5rem;
+}
+@media (min-width: 1300px) {
+  .headerContainer p {
+    font-size: 5rem;
+  }
+}

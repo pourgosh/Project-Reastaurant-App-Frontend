@@ -4,6 +4,7 @@ import { useCookies } from "react-cookie";
 import FormInput from "./FormInput/FormInput";
 import { API_URL } from "../../../ApiUrl";
 import "./form.css";
+import { useNavigate } from "react-router-dom";
 
 const AuthForm = ({ formType, setShowForm }) => {
   const [newUser, setNewUser] = useState({
@@ -17,8 +18,12 @@ const AuthForm = ({ formType, setShowForm }) => {
     password: "",
   });
 
+  const navigate = useNavigate();
+
   // eslint-disable-next-line no-unused-vars
   const [_, setCookies] = useCookies("access_token");
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setProfileCookies] = useCookies("profile_id");
 
   const firstNameRef = useRef(null);
   const lastNameRef = useRef(null);
@@ -50,8 +55,16 @@ const AuthForm = ({ formType, setShowForm }) => {
       };
       const response = await axios.post(`${API_URL}/login`, UserInfo);
       setCookies("access_token", response.data.token);
+      setProfileCookies("access_id", response.data.userId);
       window.localStorage.setItem("userID", response.data.token);
+      window.localStorage.setItem("profileID", response.data.userId);
       setShowForm(false);
+      if (location.pathname === "/user/profile") {
+        location.reload();
+      } else {
+        navigate("/");
+        location.reload();
+      }
     } catch (err) {
       console.log(err);
     }
@@ -80,7 +93,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   refName={firstNameRef}
                   inputName="firstName"
                   inputText="First Name"
-                  newUser={newUser.firstName}
+                  inputValue={newUser.firstName}
                   onChange={(e) => {
                     setNewUser({
                       ...newUser,
@@ -94,7 +107,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   refName={lastNameRef}
                   inputName="LastName"
                   inputText="Last Name"
-                  newUser={newUser.lastName}
+                  inputValue={newUser.lastName}
                   onChange={(e) => {
                     setNewUser({
                       ...newUser,
@@ -108,7 +121,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   refName={emailRef}
                   inputName="email"
                   inputText="E-mail"
-                  newUser={newUser.email}
+                  inputValue={newUser.email}
                   onChange={(e) => {
                     setNewUser({
                       ...newUser,
@@ -123,7 +136,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   inputName="password"
                   inputText="Password"
                   inputType="password"
-                  newUser={newUser.password}
+                  inputValue={newUser.password}
                   onChange={(e) => {
                     setNewUser({
                       ...newUser,
@@ -155,7 +168,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   refName={emailRef}
                   inputName="email"
                   inputText="E-mail"
-                  newUser={userLoginInfo.email}
+                  inputValue={userLoginInfo.email}
                   onChange={(e) => {
                     setUserLoginInfo({
                       ...userLoginInfo,
@@ -170,7 +183,7 @@ const AuthForm = ({ formType, setShowForm }) => {
                   inputName="password"
                   inputText="Password"
                   inputType="password"
-                  newUser={userLoginInfo.password}
+                  inputValue={userLoginInfo.password}
                   onChange={(e) => {
                     setUserLoginInfo({
                       ...userLoginInfo,
